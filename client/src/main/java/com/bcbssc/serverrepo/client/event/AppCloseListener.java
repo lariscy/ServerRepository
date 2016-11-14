@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
  */
 public class AppCloseListener implements ActionListener {
     
-    private static final Logger log = LoggerFactory.getLogger(AppCloseListener.class);
+    private static final Logger LOG = LoggerFactory.getLogger(AppCloseListener.class);
 
     private SystemTray tray;
     private TrayIcon trayIcon;
@@ -27,7 +27,7 @@ public class AppCloseListener implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent event) {
-        log.debug("close request received");
+        LOG.debug("close request received");
         //@TODO do stuff here
         
         Platform.exit();

@@ -1,16 +1,23 @@
 package com.bcbssc.serverrepo.client.controller;
 
+import com.bcbssc.serverrepo.client.MainApp;
 import com.bcbssc.serverrepo.client.event.AppCloseEvent;
 import com.bcbssc.serverrepo.client.event.AppHideEvent;
-import com.bcbssc.serverrepo.client.service.LdapUserService;
+import com.bcbssc.serverrepo.client.eventbus.LogoutEvent;
+import com.bcbssc.serverrepo.client.model.InfoBarStatus;
+import com.bcbssc.serverrepo.client.model.UserRole;
+import com.bcbssc.serverrepo.client.service.InfoBarStatusService;
+import com.bcbssc.serverrepo.client.service.UserService;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javax.inject.Inject;
+import net.engio.mbassy.listener.Handler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,7 +26,7 @@ import org.slf4j.LoggerFactory;
  */
 public class TopMenuController extends ChildController implements Initializable {
     
-    private static final Logger log = LoggerFactory.getLogger(TopMenuController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(TopMenuController.class);
 
     @FXML
     private MenuBar menuBar;
@@ -47,22 +54,37 @@ public class TopMenuController extends ChildController implements Initializable 
     private MenuItem aboutMenuItem;
     
     @Inject
-    private LdapUserService userService;
+    private UserService userService;
+    @com.google.inject.Inject
+    private InfoBarStatusService infoBarStatusService;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        log.debug("initializing");
+        LOG.debug("initializing");
         
         exitMenuItem.setOnAction(
             (java.awt.SystemTray.isSupported() ? new AppHideEvent() : new AppCloseEvent())
         );
+        
+        MainApp.getEventBus().subscribe(this);
     }
     
     @FXML
     private void handleLogout(){
-        if (userService.logout()){
-            log.debug("user logged out successfully");
-            this.getParentController().loadLoginView();
+        userService.logout();
+    }
+    
+    @Handler
+    private void ebLogoutEvent(LogoutEvent logoutEvent){
+        LOG.debug("LogoutEvent received - {}", logoutEvent);
+        if (logoutEvent.isSuccess()){
+            LOG.debug("logout successful ");
+            Platform.runLater(() ->
+                this.getParentController().loadLoginView());
+            infoBarStatusService.updateStatus(InfoBarStatus.DISCONNECTED);
+            infoBarStatusService.updateStatusRole(UserRole.NONE);
+        } else {
+            LOG.debug("logout failed");
         }
     }
     

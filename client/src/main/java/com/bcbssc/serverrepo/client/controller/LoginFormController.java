@@ -2,7 +2,11 @@ package com.bcbssc.serverrepo.client.controller;
 
 import com.bcbssc.serverrepo.client.MainApp;
 import com.bcbssc.serverrepo.client.eventbus.LoginEvent;
-import com.bcbssc.serverrepo.client.service.LdapUserService;
+import com.bcbssc.serverrepo.client.model.InfoBarStatus;
+import com.bcbssc.serverrepo.client.model.UserRole;
+import com.bcbssc.serverrepo.client.service.InfoBarStatusService;
+import com.bcbssc.serverrepo.client.service.UserService;
+import com.google.inject.Inject;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
@@ -11,7 +15,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javax.inject.Inject;
 import net.engio.mbassy.listener.Handler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,7 +38,9 @@ public class LoginFormController extends ChildController implements Initializabl
     private Label lblErrorMessage;
     
     @Inject
-    private LdapUserService userService;
+    private UserService userService;
+    @Inject
+    private InfoBarStatusService infoBarStatusService;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -43,20 +48,21 @@ public class LoginFormController extends ChildController implements Initializabl
         
         lblLoginTitle.setText(MainApp.getAppProps().getProp("application.name", "app.name"));
         
-        Platform.runLater(() -> {
-            txtUsername.requestFocus();
-        });
+        this.setLoginFocus();
         
         MainApp.getEventBus().subscribe(this);
     }
     
+    public void setLoginFocus(){
+        Platform.runLater(() ->
+            txtUsername.requestFocus());
+    }
+    
     @FXML
     private void handleLogin(){
-        //@TODO change to real implementation
-        String userTxt = txtUsername.getText().trim();
-        String userPass = txtPassword.getText().trim();
-        //LOG.debug("handleLogin() clicked with user ["+userTxt+"] and pass ["+userPass+"]");
-        userService.login(userTxt, userPass);
+        infoBarStatusService.updateStatus(InfoBarStatus.CONNECTING);
+        //LOG.debug("handleLogin() clicked with user [{}] and pass [{}]", txtUsername.getText(), txtPassword.getText());
+        userService.login(txtUsername.getText(), txtPassword.getText());
     }
     
     @Handler
@@ -64,14 +70,23 @@ public class LoginFormController extends ChildController implements Initializabl
         LOG.debug("LoginEvent received - {}", loginEvent);
         if (loginEvent.isSuccess()){
             LOG.debug("login successful");
-            Platform.runLater(() -> 
-                this.getParentController().loadServerTreeView());
+            Platform.runLater(() -> {
+                txtUsername.setText("");
+                txtPassword.setText("");
+                lblErrorMessage.setText("");
+                txtUsername.requestFocus();
+                this.getParentController().loadServerTreeView();
+            });
+            infoBarStatusService.updateStatus(InfoBarStatus.CONNECTED);
+            infoBarStatusService.updateStatusRole(loginEvent.getUser().getUserRole());
         } else {
             LOG.debug("login failed");
             Platform.runLater(() -> {
                 txtPassword.setText("");
                 lblErrorMessage.setText(loginEvent.getMessage());
             });
+            infoBarStatusService.updateStatus(InfoBarStatus.DISCONNECTED);
+            infoBarStatusService.updateStatusRole(UserRole.NONE);
         }
     }
     

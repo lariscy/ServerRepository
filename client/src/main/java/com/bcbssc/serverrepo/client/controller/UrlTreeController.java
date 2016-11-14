@@ -2,7 +2,6 @@ package com.bcbssc.serverrepo.client.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TreeItem;
@@ -15,19 +14,19 @@ import org.slf4j.LoggerFactory;
  */
 public class UrlTreeController extends ChildController implements Initializable {
     
-    private static final Logger log = LoggerFactory.getLogger(UrlTreeController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(UrlTreeController.class);
 
     @FXML
     private TreeView treeView;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        log.debug("initializing");
+        LOG.debug("initializing");
         this.generateTestData();
     }
 
     private void generateTestData() {
-        log.debug("TEST: generating test data for TreeView");
+        LOG.debug("TEST: generating test data for TreeView");
         TreeItem<String> root = new TreeItem<>("Root");
         root.setExpanded(true);
         

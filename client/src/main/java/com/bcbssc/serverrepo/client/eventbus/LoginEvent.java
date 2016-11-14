@@ -1,37 +1,30 @@
 package com.bcbssc.serverrepo.client.eventbus;
 
+import com.bcbssc.serverrepo.client.model.User;
+
 /**
  * @author jw38
  */
-public class LoginEvent implements ServerRepoEvent {
+public class LoginEvent extends SimpleResponseEvent {
+
+    private User user;
     
-    private boolean success;
-    private String message;
-
-    public LoginEvent(boolean isSuccess, String message) {
-        this.success = isSuccess;
-        this.message = message;
+    public LoginEvent(boolean success, User user, String message) {
+        super(success, message);
+        this.user = user;
     }
 
-    public boolean isSuccess() {
-        return success;
+    public User getUser() {
+        return user;
     }
 
-    public void setSuccess(boolean success) {
-        this.success = success;
+    public void setUser(User user) {
+        this.user = user;
     }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
+    
     @Override
     public String toString() {
-        return "LoginEvent{" + "isSuccess=" + success + ", message=" + message + '}';
+        return "LoginEvent{user=" + user + ", isSuccess=" + isSuccess() + ", message=" + getMessage() + '}';
     }
     
 }

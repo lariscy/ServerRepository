@@ -11,11 +11,11 @@ import org.slf4j.LoggerFactory;
  */
 public class AppCloseEvent implements EventHandler {
     
-    private static final Logger log = LoggerFactory.getLogger(AppCloseEvent.class);
+    private static final Logger LOG = LoggerFactory.getLogger(AppCloseEvent.class);
 
     @Override
     public void handle(Event event) {
-        log.debug("close request received");
+        LOG.debug("close request received");
         
         event.consume();
         Platform.exit();

@@ -99,3 +99,15 @@
 .login-error-message {
     -fx-text-fill: -fx-error-red;
 }
+.login-form-guest-link {
+    -fx-text-fill: blue;
+    -fx-underline: false;
+}
+.login-form-guest-link:hover,
+  .login-form-guest-link:visited:hover {
+    -fx-text-fill: red;
+}
+.login-form-guest-link:visited {
+    -fx-text-fill: green;
+    -fx-underline: false;
+}

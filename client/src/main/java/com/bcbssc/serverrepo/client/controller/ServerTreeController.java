@@ -15,14 +15,14 @@ import org.slf4j.LoggerFactory;
  */
 public class ServerTreeController extends ChildController implements Initializable {
     
-    private static final Logger log = LoggerFactory.getLogger(ServerTreeController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ServerTreeController.class);
 
     @FXML
     private TreeView treeView;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        log.debug("initializing");
+        LOG.debug("initializing");
         
         ServerTreeRunnable serverTreeRunnable = new ServerTreeRunnable(new ServerTreeManager(treeView));
         Thread serverTreeThread = new Thread(serverTreeRunnable, "Server Tree Thread");

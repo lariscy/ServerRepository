@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
  */
 public class ServerTreeRunnable implements Runnable {
     
-    private static final Logger log = LoggerFactory.getLogger(ServerTreeRunnable.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ServerTreeRunnable.class);
     
     private ServerTreeManager serverTreeManager;
 
@@ -18,7 +18,7 @@ public class ServerTreeRunnable implements Runnable {
 
     @Override
     public void run() {
-        log.debug("ServerTreeRunnable.run()");
+        LOG.debug("ServerTreeRunnable.run()");
         
         serverTreeManager.generateTestTreeData();
         

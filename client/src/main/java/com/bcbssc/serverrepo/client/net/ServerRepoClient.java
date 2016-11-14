@@ -22,7 +22,7 @@ import org.slf4j.LoggerFactory;
  */
 public class ServerRepoClient {
     
-    private static final Logger log = LoggerFactory.getLogger(ServerRepoClient.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ServerRepoClient.class);
     
     private String serverHost = "127.0.0.1";
     private int serverPort = 3026;
@@ -38,7 +38,7 @@ public class ServerRepoClient {
     public void setupClient(ServerTreeManager serverTreeManager){
         group = new NioEventLoopGroup();
 
-        log.debug("initializing network client");
+        LOG.debug("initializing network client");
 
         Bootstrap b = new Bootstrap();
         b.group(group)
@@ -55,13 +55,13 @@ public class ServerRepoClient {
                     }
                 });
 
-        log.debug("connecting to {}:{}", serverHost, serverPort);
+        LOG.debug("connecting to {}:{}", serverHost, serverPort);
         ChannelFuture channelFuture = b.connect(serverHost, serverPort);
         channelFuture.addListener((FutureListener<Void>) (Future<Void> f) -> {
             if (!f.isSuccess()) {
-                log.error("exception during client connection", f.cause());
+                LOG.error("exception during client connection", f.cause());
             } else if (f.isSuccess()){
-                log.debug("client connected successfully");
+                LOG.debug("client connected successfully");
             }
         });
     }

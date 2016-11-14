@@ -2,7 +2,6 @@ package com.bcbssc.serverrepo.client.event;
 
 import com.bcbssc.serverrepo.client.MainApp;
 import com.bcbssc.serverrepo.client.controller.ConfirmboxController;
-import com.bcbssc.serverrepo.client.view.ConfirmboxView;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.geometry.Rectangle2D;
@@ -18,7 +17,7 @@ import org.slf4j.LoggerFactory;
  */
 public class AppHideEvent implements EventHandler {
     
-    private static final Logger log = LoggerFactory.getLogger(AppHideEvent.class);
+    private static final Logger LOG = LoggerFactory.getLogger(AppHideEvent.class);
     
     private static Stage stage;
     private static boolean wasShown = false;
@@ -28,31 +27,31 @@ public class AppHideEvent implements EventHandler {
     }
     
     private void init(){
-        stage = new Stage();
-        stage.initStyle(StageStyle.UNDECORATED);
-        ConfirmboxView confirmboxView = new ConfirmboxView();
-        ConfirmboxController confirmboxController = (ConfirmboxController) confirmboxView.getPresenter();
-        confirmboxController.setTitle(MainApp.getAppProps().getProp("application.name", "default.title"));
-        confirmboxController.setMessage("Application minimized to SystemTray."+
-                "\n\n"+
-                "*This message will not reappear");
-        Scene scene = new Scene(confirmboxView.getView());
-        scene.getStylesheets().add(this.getClass().getResource(MainApp.MAIN_CSS).toExternalForm());
-        stage.setScene(scene);
+//        stage = new Stage();
+//        stage.initStyle(StageStyle.UNDECORATED);
+//        ConfirmboxView confirmboxView = new ConfirmboxView();
+//        ConfirmboxController confirmboxController = (ConfirmboxController) confirmboxView.getPresenter();
+//        confirmboxController.setTitle(MainApp.getAppProps().getProp("application.name", "default.title"));
+//        confirmboxController.setMessage("Application minimized to SystemTray."+
+//                "\n\n"+
+//                "*This message will not reappear");
+//        Scene scene = new Scene(confirmboxView.getView());
+//        scene.getStylesheets().add(this.getClass().getResource(MainApp.MAIN_CSS).toExternalForm());
+//        stage.setScene(scene);
     }
     
     @Override
     public void handle(Event event) {
-        log.debug("request to hide stage");
-        
+        LOG.debug("request to hide stage");
+//        
         event.consume();
         MainApp.hideStage();
-        
-        if (!wasShown){
-            stage.show();
-            this.setStagePosition(stage);
-            wasShown = true;
-        }
+//        
+//        if (!wasShown){
+//            stage.show();
+//            this.setStagePosition(stage);
+//            wasShown = true;
+//        }
     }
     
     private void setStagePosition(Stage stage){

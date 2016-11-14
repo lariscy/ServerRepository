@@ -4,12 +4,16 @@ import com.bcbssc.serverrepo.client.event.AppCloseEvent;
 import com.bcbssc.serverrepo.client.event.AppCloseListener;
 import com.bcbssc.serverrepo.client.event.AppHideEvent;
 import com.bcbssc.serverrepo.client.eventbus.ServerRepoEvent;
+import com.bcbssc.serverrepo.client.guice.ServerRepoGuiceModule;
 import com.bcbssc.serverrepo.client.util.AppProps;
-import com.bcbssc.serverrepo.client.view.AppContainerView;
+import com.google.inject.Guice;
+import com.google.inject.Injector;
 import java.io.IOException;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.application.Platform;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javax.imageio.ImageIO;
@@ -21,15 +25,17 @@ public class MainApp extends Application {
     
     private static final Logger LOG = LoggerFactory.getLogger(MainApp.class);
     
+    private static final String MAIN_FXML = "/com/bcbssc/serverrepo/client/view/AppContainer.fxml";
     public static final String MAIN_CSS = "/com/bcbssc/serverrepo/client/css/app.css";
     private static final String STATUSBAR_ICON_IMG = "/com/bcbssc/serverrepo/client/img/equipment.png";
     private static AppProps appProps;
     private static Stage primaryStage;
     private static ClientLocation clientLocation;
     private static MBassador<ServerRepoEvent> eventBus;
-
+    private static Injector injector = Guice.createInjector(new ServerRepoGuiceModule());
+    
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage){
         LOG.debug("starting application");
         
         eventBus = new MBassador<>();
@@ -39,16 +45,23 @@ public class MainApp extends Application {
         
         appProps = new AppProps("application.properties");
         
-        AppContainerView mainView = new AppContainerView();
-        
-        Scene scene = new Scene(mainView.getView());
-        scene.getStylesheets().add(this.getClass().getResource(MAIN_CSS).toExternalForm());
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        try {
+            fxmlLoader.setLocation(getClass().getResource(MAIN_FXML));
+            fxmlLoader.setControllerFactory(injector::getInstance);
+            Parent parent = fxmlLoader.load();
+            Scene scene = new Scene(parent);
+            scene.getStylesheets().add(this.getClass().getResource(MAIN_CSS).toExternalForm());
+            primaryStage.setScene(scene);
+        } catch (IOException ex) {
+            LOG.error("error loading FXML [{}], exiting...", MAIN_FXML, ex);
+            Platform.exit();
+        }
         
         Platform.setImplicitExit(false);
         javax.swing.SwingUtilities.invokeLater(this::addAppToTray);
         
         primaryStage.setTitle(this.getTitle());
-        primaryStage.setScene(scene);
         primaryStage.setOnCloseRequest(
             (java.awt.SystemTray.isSupported() ? new AppHideEvent() : new AppCloseEvent())
         );
@@ -75,6 +88,10 @@ public class MainApp extends Application {
     
     public static MBassador<ServerRepoEvent> getEventBus(){
         return eventBus;
+    }
+    
+    public static Injector getInjector(){
+        return injector;
     }
     
     private void addAppToTray(){

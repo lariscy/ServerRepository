@@ -1,14 +1,18 @@
 package com.bcbssc.serverrepo.client.controller;
 
+import com.bcbssc.serverrepo.client.MainApp;
+import com.bcbssc.serverrepo.client.eventbus.LogoutEvent;
 import com.bcbssc.serverrepo.client.util.FontAwesome;
 import com.bcbssc.serverrepo.client.util.ToolTipUtil;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.VBox;
+import net.engio.mbassy.listener.Handler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,7 +21,7 @@ import org.slf4j.LoggerFactory;
  */
 public class LeftMenuController extends ChildController implements Initializable {
 
-    private static final Logger log = LoggerFactory.getLogger(LeftMenuController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(LeftMenuController.class);
     
     @FXML
     private VBox parentVBox;
@@ -28,12 +32,14 @@ public class LeftMenuController extends ChildController implements Initializable
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        log.debug("initializing");
+        LOG.debug("initializing");
         
         btnServerList.setText(FontAwesome.SERVER);
         btnUrlList.setText(FontAwesome.GLOBE);
         
         this.setupToolTips();
+        
+        MainApp.getEventBus().subscribe(this);
     }
     
     private void setupToolTips(){
@@ -52,7 +58,8 @@ public class LeftMenuController extends ChildController implements Initializable
             btnServerList.setSelected(true);
             return;
         }
-        this.getParentController().loadServerTreeView();
+        if (!this.getParentController().loadServerTreeView())
+            btnServerList.setSelected(false);
     }
     
     @FXML
@@ -61,7 +68,26 @@ public class LeftMenuController extends ChildController implements Initializable
             btnUrlList.setSelected(true);
             return;
         }
-        this.getParentController().loadURLTreeView();
+        if (!this.getParentController().loadURLTreeView())
+            btnUrlList.setSelected(false);
+    }
+    
+    public void setServerListToggleActive(){
+        btnServerList.setSelected(true);
+        btnUrlList.setSelected(false);
+    }
+    
+    public void setUrlListToggleActive(){
+        btnUrlList.setSelected(true);
+        btnServerList.setSelected(false);
+    }
+    
+    @Handler
+    private void ebLogoutEvent(LogoutEvent logoutEvent){
+        Platform.runLater(() -> {
+            btnUrlList.setSelected(false);
+            btnServerList.setSelected(false);
+        });
     }
     
 }

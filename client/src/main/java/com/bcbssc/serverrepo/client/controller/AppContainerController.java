@@ -1,14 +1,19 @@
 package com.bcbssc.serverrepo.client.controller;
 
-import com.airhacks.afterburner.views.FXMLView;
-import com.bcbssc.serverrepo.client.view.LoginFormView;
-import com.bcbssc.serverrepo.client.view.ServerTreeView;
-import com.bcbssc.serverrepo.client.view.UrlTreeView;
+import com.bcbssc.serverrepo.client.MainApp;
+import com.bcbssc.serverrepo.client.model.User;
+import com.bcbssc.serverrepo.client.service.UserService;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
+import javax.inject.Inject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,71 +22,104 @@ import org.slf4j.LoggerFactory;
  */
 public class AppContainerController implements Initializable {
     
-    private static final Logger log = LoggerFactory.getLogger(AppContainerController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(AppContainerController.class);
 
     @FXML
     private BorderPane borderPane;
     
-    // references to all sub controllers
     @FXML
     private TopMenuController topMenuController;
     @FXML
     private LeftMenuController leftMenuController;
     @FXML
     private BottomInfoBarController bottomInfoBarController;
+    @FXML
+    private VBox loginForm;
+    @FXML
+    private LoginFormController loginFormController;
     
-    private FXMLView serverTreeView;
-    private FXMLView urlTreeView;
+    private final String FXML_LOGINFORM = "/com/bcbssc/serverrepo/client/view/LoginForm.fxml";
+    private final String FXML_SERVERTREE = "/com/bcbssc/serverrepo/client/view/ServerTree.fxml";
+    private final String FXML_URLTREE = "/com/bcbssc/serverrepo/client/view/UrlTree.fxml";
+    
+    private Parent serverTreeView;
+    private ServerTreeController serverTreeController;
+    private Parent urlTreeView;
+    private UrlTreeController urlTreeController;
+    
+    @Inject
+    private UserService userService;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        log.debug("initializing");
+        LOG.debug("initializing");
         
-        // List of child controllers loaded by FXMLLoader 
-        // when the parent FXML (AppContainer.fxml) is loaded
-        ChildController[] childControllers = new ChildController[] {
-            topMenuController, leftMenuController, bottomInfoBarController
-        };
-        for (ChildController c : childControllers){
-            c.setParentController(this);
-        }
+        topMenuController.setParentController(this);
+        leftMenuController.setParentController(this);
+        bottomInfoBarController.setParentController(this);
+        loginFormController.setParentController(this);
         
-        this.loadLoginView();
+        this.initOtherViews();
+    }
+    
+    private void initOtherViews(){
+        FXMLLoader loader = getLoaderForFxml(FXML_SERVERTREE);
+        serverTreeView = getNodeFromLoader(loader);
+        serverTreeController = (ServerTreeController) getControllerFromLoader(loader);
+        
+        loader = getLoaderForFxml(FXML_URLTREE);
+        urlTreeView = getNodeFromLoader(loader);
+        urlTreeController = (UrlTreeController) getControllerFromLoader(loader);
     }
     
     public void loadLoginView(){
-        this.loadViewCenter(new LoginFormView());
+        this.loadNodeCenter(loginForm);
+        loginFormController.setLoginFocus();
     }
     
-    public void loadServerTreeView(){
-        if (serverTreeView == null){
-            serverTreeView = new ServerTreeView();
+    public boolean loadServerTreeView(){
+        User user = userService.getUser();
+        if (user!=null && user.isIsLoggedIn()){
+            this.loadNodeCenter(serverTreeView);
+            leftMenuController.setServerListToggleActive();
+            return true;
         }
-        this.loadViewCenter(serverTreeView);
+        return false;
     }
     
-    public void loadURLTreeView(){
-        if (urlTreeView == null){
-            urlTreeView = new UrlTreeView();
+    public boolean loadURLTreeView(){
+        User user = userService.getUser();
+        if (user!=null && user.isIsLoggedIn()){
+            this.loadNodeCenter(urlTreeView);
+            leftMenuController.setUrlListToggleActive();
+            return true;
         }
-        this.loadViewCenter(urlTreeView);
+        return false;
     }
     
-    /**
-     * Views loaded by this method must extend
-     * com.airhacks.afterburner.views.FXMLView
-     * 
-     * The Controller / Presenter that the view references should also extend
-     * com.bcbssc.serverrepo.client.controller.ChildController
-     * 
-     * @param fxmlView 
-     */
-    private void loadViewCenter(FXMLView fxmlView){
-        ChildController childController = (ChildController) fxmlView.getPresenter();
-        if (childController.getParentController() == null){
-            childController.setParentController(this);
+    private void loadNodeCenter(Node node){
+        this.borderPane.setCenter(node);
+    }
+    
+    private FXMLLoader getLoaderForFxml(String fxmlPath){
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource(fxmlPath));
+        fxmlLoader.setControllerFactory(MainApp.getInjector()::getInstance);
+        return fxmlLoader;
+    }
+    
+    private ChildController getControllerFromLoader(FXMLLoader fxmlLoader){
+        ((ChildController) fxmlLoader.getController()).setParentController(this);
+        return (ChildController) fxmlLoader.getController();
+    }
+    
+    private Parent getNodeFromLoader(FXMLLoader fxmlLoader){
+        try {
+            return fxmlLoader.load();
+        } catch (IOException ex) {
+            LOG.error("error loading FXML [{}]", fxmlLoader.getLocation(), ex);
         }
-        this.borderPane.setCenter(fxmlView.getView());
+        return null;
     }
     
 }

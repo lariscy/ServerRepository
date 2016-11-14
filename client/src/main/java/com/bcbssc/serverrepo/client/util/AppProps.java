@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
  */
 public class AppProps {
     
-    private static final Logger log = LoggerFactory.getLogger(AppProps.class);
+    private static final Logger LOG = LoggerFactory.getLogger(AppProps.class);
 
     private final Properties PROPS;
     private static final String NOT_FOUND = "!!PropertyNotFound!!";
@@ -21,11 +21,11 @@ public class AppProps {
     }
     
     private void loadProps(String fileName){
-        log.debug("loading properties from [{}]", fileName);
+        LOG.debug("loading properties from [{}]", fileName);
         try {
             PROPS.load(this.getClass().getClassLoader().getResourceAsStream(fileName));
         } catch (IOException | NullPointerException ex) {
-            log.error("exception while loading {}", fileName, ex);
+            LOG.error("exception while loading {}", fileName, ex);
         }
     }
     

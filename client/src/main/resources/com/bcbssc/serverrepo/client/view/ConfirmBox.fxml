@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+
+<HBox prefHeight="115.0" prefWidth="475.0" styleClass="confirmbox" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bcbssc.serverrepo.client.controller.ConfirmboxController">
+   <children>
+      <Rectangle fx:id="rectangle" arcWidth="5.0" fill="DODGERBLUE" height="115.0" strokeWidth="0.0" styleClass="confirmbox-rectangle" width="25.0" />
+      <ImageView fx:id="imageView" fitHeight="115.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true" />
+      <VBox HBox.hgrow="SOMETIMES">
+         <children>
+            <Label fx:id="lblTitle" styleClass="confirmbox-title" text="notification.title">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+            <Line fx:id="line" endX="100.0" startX="-100.0" styleClass="confirmbox-line" />
+            <Label fx:id="lblMessage" styleClass="confirmbox-message" text="notification.text">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+         </children>
+      </VBox>
+      <VBox fillWidth="false">
+         <children>
+            <Label fx:id="lblClose" onMouseClicked="#closeIt" text="X" textAlignment="RIGHT">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+         </children>
+      </VBox>
+   </children>
+</HBox>

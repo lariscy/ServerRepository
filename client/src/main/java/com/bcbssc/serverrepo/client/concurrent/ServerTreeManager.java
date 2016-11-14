@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
  */
 public class ServerTreeManager {
     
-    private static final Logger log = LoggerFactory.getLogger(ServerTreeManager.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ServerTreeManager.class);
     
     private TreeView treeView;
 
@@ -21,7 +21,7 @@ public class ServerTreeManager {
     }
     
     public void generateTestTreeData(){
-        log.debug("TEST: generating test data for TreeView");
+        LOG.debug("TEST: generating test data for TreeView");
         TreeItem<String> root = new TreeItem<>("Root");
         root.setExpanded(true);
         
@@ -40,14 +40,14 @@ public class ServerTreeManager {
     }
     
     public void addApplication(){
-        log.debug("TEST: adding new application to TreeView");
+        LOG.debug("TEST: adding new application to TreeView");
         Platform.runLater(() -> {
             treeView.getRoot().getChildren().add(new TreeItem<>("Application 11"));
         });
     }
 
     void addServersToNewApplication() {
-        log.debug("TEST: adding servers to new application in TreeView");
+        LOG.debug("TEST: adding servers to new application in TreeView");
         ObservableList appList = treeView.getRoot().getChildren();
         Platform.runLater(() -> {
             ((TreeItem) appList.get(appList.size() - 1)).getChildren().add(new TreeItem<>("Server 1"));
