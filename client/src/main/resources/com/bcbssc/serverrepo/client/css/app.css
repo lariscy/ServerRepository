@@ -1,0 +1,101 @@
+/*******************************************************************************
+ *
+ * Default Theme
+ *
+ * Description:
+ * Near default theme
+ *
+ * @TODO - I'd like to move all CSS that will remain the same across all themes
+ * (such as button padding) to a separate CSS file and theme related things
+ * (such as colors) in a different file.
+ *
+ ******************************************************************************/
+
+/*******************************************************************************
+ *
+ * Fonts
+ *
+ ******************************************************************************/
+/*
+    having issues getting @font-face to load locally using absolute paths so
+    for now it is set to use a full URL
+*/
+@font-face {
+/*    src: url('https://techutilities.bcbssc.com/fonts/Roboto-Light.ttf');*/
+/*    src: url('https://techutilities.bcbssc.com/fonts/Roboto-Italic.ttf');*/
+    src: url('https://techutilities.bcbssc.com/fonts/Roboto-LightItalic.ttf');
+}
+@font-face {
+    src: url('https://techutilities.bcbssc.com/fonts/fontawesome-webfont.ttf');
+}
+
+/*******************************************************************************
+ *
+ * Base style colors
+ *
+ ******************************************************************************/
+.root {
+    -fx-confirmbox-base: #ffffff;
+    -fx-confirmbox-border: #ffffff;
+    -fx-error-red: #ff0000;
+}
+
+/*******************************************************************************
+ *
+ * Root styling and base CSS restyling
+ *
+ ******************************************************************************/
+.root, .label {
+    -fx-font-family: 'Roboto'; /*-fx-font-family: 'FontAwesome';*/
+}
+.tooltip {
+    -fx-font-size: 12px;
+}
+
+/*******************************************************************************
+ *
+ * ToggleButons used on left side menu
+ *
+ ******************************************************************************/
+.left-menu-toggle-button {
+    -fx-background-radius: 0; /* makes button square */
+    -fx-padding: 5;/* small padding */
+    -fx-font-family: 'FontAwesome';
+    -fx-font-size: 18; /* glyph size */
+    -fx-text-fill: #000000; /* glyph color */
+}
+.left-menu-toggle-button:selected {
+    -fx-text-fill: #ffffff; /* glyph color */
+}
+
+/*******************************************************************************
+ *
+ * Confirmbox
+ *
+ ******************************************************************************/
+.confirmbox {
+    -fx-font-family: 'Roboto';
+    -fx-border-color: -fx-confirmbox-border;
+    -fx-border-width: 1px;
+}
+.confirmbox-rectangle {
+    -fx-fill: -fx-confirmbox-base;
+}
+.confirmbox-title {
+    -fx-font-size: 16px;
+}
+.confirmbox-line {
+    -fx-stroke: -fx-confirmbox-base;
+}
+.confirmbox-message {
+    
+}
+
+/*******************************************************************************
+ *
+ * LoginForm
+ *
+ ******************************************************************************/
+.login-error-message {
+    -fx-text-fill: -fx-error-red;
+}
