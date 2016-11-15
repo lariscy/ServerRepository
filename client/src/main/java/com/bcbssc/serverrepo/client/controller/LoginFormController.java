@@ -10,8 +10,10 @@ import com.google.inject.Inject;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
+import javafx.beans.binding.BooleanBinding;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -36,17 +38,38 @@ public class LoginFormController extends ChildController implements Initializabl
     private Label lblLoginTitle;
     @FXML
     private Label lblErrorMessage;
+    @FXML
+    private Button btnLogin;
     
     @Inject
     private UserService userService;
     @Inject
     private InfoBarStatusService infoBarStatusService;
     
+//    private BooleanBinding textRequiredBinding = new BooleanBinding(){
+//        {
+//            super.bind(txtUsername.textProperty(), txtPassword.textProperty());
+//        }
+//        @Override
+//        protected boolean computeValue() {
+//            return (txtUsername.getText().isEmpty() && txtPassword.getText().isEmpty());
+//        }
+//    };
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         LOG.debug("initializing");
         
         lblLoginTitle.setText(MainApp.getAppProps().getProp("application.name", "app.name"));
+        btnLogin.disableProperty().bind(new BooleanBinding(){
+            {
+                super.bind(txtUsername.textProperty(), txtPassword.textProperty());
+            }
+            @Override
+            protected boolean computeValue() {
+                return (txtUsername.getText().isEmpty() || txtPassword.getText().isEmpty());
+            }
+        });
         
         this.setLoginFocus();
         

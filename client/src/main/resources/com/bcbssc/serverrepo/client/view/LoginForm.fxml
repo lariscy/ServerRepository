@@ -25,7 +25,7 @@
             <PasswordField fx:id="txtPassword" />
             <HBox alignment="TOP_RIGHT">
                <children>
-                  <Button defaultButton="true" mnemonicParsing="false" onAction="#handleLogin" text="Login" />
+                  <Button fx:id="btnLogin" defaultButton="true" mnemonicParsing="false" onAction="#handleLogin" text="Login" />
                </children>
             </HBox>
          </children>

@@ -32,5 +32,10 @@ public class User {
     public void setIsLoggedIn(boolean isLoggedIn) {
         this.isLoggedIn = isLoggedIn;
     }
+
+    @Override
+    public String toString() {
+        return "User{" + "userName=" + userName + ", userRole=" + userRole + ", isLoggedIn=" + isLoggedIn + '}';
+    }
     
 }

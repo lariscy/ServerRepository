@@ -42,7 +42,7 @@ public class LdapUserService implements UserService {
             return true;
         }
         
-        MainApp.getEventBus().publishAsync(new LoginEvent(false, null, "login failed!"));
+        MainApp.getEventBus().publishAsync(new LoginEvent(false, null, "Error: Login failed!"));
         return false;
     }
 

@@ -10,7 +10,7 @@
         <fx:include fx:id="leftMenu" source="LeftMenu.fxml" />
     </left>
     <center>
-        <fx:include fx:id="loginForm" source="loginform.fxml" />
+        <fx:include fx:id="loginForm" source="LoginForm.fxml" />
     </center>
     <bottom>
         <fx:include fx:id="bottomInfoBar" source="BottomInfoBar.fxml" />

@@ -16,17 +16,11 @@
  * Fonts
  *
  ******************************************************************************/
-/*
-    having issues getting @font-face to load locally using absolute paths so
-    for now it is set to use a full URL
-*/
 @font-face {
-/*    src: url('https://techutilities.bcbssc.com/fonts/Roboto-Light.ttf');*/
-/*    src: url('https://techutilities.bcbssc.com/fonts/Roboto-Italic.ttf');*/
-    src: url('https://techutilities.bcbssc.com/fonts/Roboto-LightItalic.ttf');
+    src: url('../font/Roboto-LightItalic.ttf');
 }
 @font-face {
-    src: url('https://techutilities.bcbssc.com/fonts/fontawesome-webfont.ttf');
+    src: url('../font/fontawesome-webfont.ttf');
 }
 
 /*******************************************************************************
@@ -96,7 +90,7 @@
  * LoginForm
  *
  ******************************************************************************/
-.login-error-message {
+.login-form-error-message {
     -fx-text-fill: -fx-error-red;
 }
 .login-form-guest-link {
