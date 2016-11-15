@@ -1,5 +1,6 @@
 package com.bcbssc.serverrepo.client.controller;
 
+import com.bcbssc.serverrepo.client.FilePath;
 import com.bcbssc.serverrepo.client.MainApp;
 import com.bcbssc.serverrepo.client.model.User;
 import com.bcbssc.serverrepo.client.service.UserService;
@@ -38,10 +39,6 @@ public class AppContainerController implements Initializable {
     @FXML
     private LoginFormController loginFormController;
     
-    private final String FXML_LOGINFORM = "/com/bcbssc/serverrepo/client/view/LoginForm.fxml";
-    private final String FXML_SERVERTREE = "/com/bcbssc/serverrepo/client/view/ServerTree.fxml";
-    private final String FXML_URLTREE = "/com/bcbssc/serverrepo/client/view/UrlTree.fxml";
-    
     private Parent serverTreeView;
     private ServerTreeController serverTreeController;
     private Parent urlTreeView;
@@ -63,11 +60,11 @@ public class AppContainerController implements Initializable {
     }
     
     private void initOtherViews(){
-        FXMLLoader loader = getLoaderForFxml(FXML_SERVERTREE);
+        FXMLLoader loader = getLoaderForFxml(FilePath.FXML_SERVERTREE);
         serverTreeView = getNodeFromLoader(loader);
         serverTreeController = (ServerTreeController) getControllerFromLoader(loader);
         
-        loader = getLoaderForFxml(FXML_URLTREE);
+        loader = getLoaderForFxml(FilePath.FXML_URLTREE);
         urlTreeView = getNodeFromLoader(loader);
         urlTreeController = (UrlTreeController) getControllerFromLoader(loader);
     }

@@ -15,6 +15,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javax.imageio.ImageIO;
 import net.engio.mbassy.bus.MBassador;
@@ -25,9 +26,6 @@ public class MainApp extends Application {
     
     private static final Logger LOG = LoggerFactory.getLogger(MainApp.class);
     
-    private static final String MAIN_FXML = "/com/bcbssc/serverrepo/client/view/AppContainer.fxml";
-    public static final String MAIN_CSS = "/com/bcbssc/serverrepo/client/css/app.css";
-    private static final String STATUSBAR_ICON_IMG = "/com/bcbssc/serverrepo/client/img/equipment.png";
     private static AppProps appProps;
     private static Stage primaryStage;
     private static ClientLocation clientLocation;
@@ -36,7 +34,7 @@ public class MainApp extends Application {
     
     @Override
     public void start(Stage primaryStage){
-        LOG.debug("starting application");
+        LOG.info("starting application");
         
         eventBus = new MBassador<>();
         
@@ -47,14 +45,14 @@ public class MainApp extends Application {
         
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
-            fxmlLoader.setLocation(getClass().getResource(MAIN_FXML));
+            fxmlLoader.setLocation(getClass().getResource(FilePath.FXML_APPCONTAINER));
             fxmlLoader.setControllerFactory(injector::getInstance);
             Parent parent = fxmlLoader.load();
             Scene scene = new Scene(parent);
-            scene.getStylesheets().add(this.getClass().getResource(MAIN_CSS).toExternalForm());
+            scene.getStylesheets().add(this.getClass().getResource(FilePath.CSS_APP).toExternalForm());
             primaryStage.setScene(scene);
         } catch (IOException ex) {
-            LOG.error("error loading FXML [{}], exiting...", MAIN_FXML, ex);
+            LOG.error("error loading FXML [{}], exiting...", FilePath.FXML_APPCONTAINER, ex);
             Platform.exit();
         }
         
@@ -62,6 +60,7 @@ public class MainApp extends Application {
         javax.swing.SwingUtilities.invokeLater(this::addAppToTray);
         
         primaryStage.setTitle(this.getTitle());
+        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream(FilePath.IMG_APP_ICON)));
         primaryStage.setOnCloseRequest(
             (java.awt.SystemTray.isSupported() ? new AppHideEvent() : new AppCloseEvent())
         );
@@ -105,7 +104,7 @@ public class MainApp extends Application {
 
             java.awt.SystemTray tray = java.awt.SystemTray.getSystemTray();
 
-            java.awt.Image image = ImageIO.read(this.getClass().getResourceAsStream(STATUSBAR_ICON_IMG));
+            java.awt.Image image = ImageIO.read(this.getClass().getResourceAsStream(FilePath.IMG_APP_ICON));
             java.awt.TrayIcon trayIcon = new java.awt.TrayIcon(image, MainApp.getAppProps().getProp("application.name", "app.name"));
 
             trayIcon.addActionListener(event -> Platform.runLater(this::showStage));

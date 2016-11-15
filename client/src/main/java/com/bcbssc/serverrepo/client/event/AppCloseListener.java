@@ -28,9 +28,9 @@ public class AppCloseListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent event) {
         LOG.debug("close request received");
-        //@TODO do stuff here
+        //@TODO do stuff here to save application state (window size, location), etc. for next load
         
-        Platform.exit();
+        Platform.runLater(Platform::exit);
         
         if (tray!=null && trayIcon!=null){
             tray.remove(trayIcon);

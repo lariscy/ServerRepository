@@ -34,24 +34,21 @@ public class ServerTreeManager {
         }
         
         treeView.setShowRoot(false);
-        Platform.runLater(() -> {
-            treeView.setRoot(root);
-        });
+        Platform.runLater(() ->
+            treeView.setRoot(root));
     }
     
     public void addApplication(){
         LOG.debug("TEST: adding new application to TreeView");
-        Platform.runLater(() -> {
-            treeView.getRoot().getChildren().add(new TreeItem<>("Application 11"));
-        });
+        Platform.runLater(() ->
+            treeView.getRoot().getChildren().add(new TreeItem<>("Application 11")));
     }
 
     void addServersToNewApplication() {
         LOG.debug("TEST: adding servers to new application in TreeView");
         ObservableList appList = treeView.getRoot().getChildren();
-        Platform.runLater(() -> {
-            ((TreeItem) appList.get(appList.size() - 1)).getChildren().add(new TreeItem<>("Server 1"));
-        });
+        Platform.runLater(() ->
+            ((TreeItem) appList.get(appList.size() - 1)).getChildren().add(new TreeItem<>("Server 1")));
     }
     
 }

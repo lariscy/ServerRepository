@@ -23,9 +23,9 @@ public class AppProps {
     private void loadProps(String fileName){
         LOG.debug("loading properties from [{}]", fileName);
         try {
-            PROPS.load(this.getClass().getClassLoader().getResourceAsStream(fileName));
+            PROPS.load(getClass().getClassLoader().getResourceAsStream(fileName));
         } catch (IOException | NullPointerException ex) {
-            LOG.error("exception while loading {}", fileName, ex);
+            LOG.error("exception while loading [{}]", fileName, ex);
         }
     }
     

@@ -77,8 +77,7 @@ public class LoginFormController extends ChildController implements Initializabl
     }
     
     public void setLoginFocus(){
-        Platform.runLater(() ->
-            txtUsername.requestFocus());
+        Platform.runLater(txtUsername::requestFocus);
     }
     
     @FXML
