@@ -1,11 +1,12 @@
 package com.bcbssc.serverrepo.client.service;
 
-import com.bcbssc.serverrepo.client.MainApp;
 import com.bcbssc.serverrepo.client.eventbus.LoginEvent;
 import com.bcbssc.serverrepo.client.eventbus.LogoutEvent;
 import com.bcbssc.serverrepo.client.model.User;
 import com.bcbssc.serverrepo.client.model.UserRole;
 import com.google.inject.Singleton;
+import javax.inject.Inject;
+import net.engio.mbassy.bus.MBassador;
 
 /**
  * @author jw38
@@ -14,6 +15,9 @@ import com.google.inject.Singleton;
 public class LdapUserService implements UserService {
 
     private User user;
+    
+    @Inject
+    private MBassador eventBus;
     
     @Override
     public boolean login(String userName, String password) {
@@ -24,25 +28,25 @@ public class LdapUserService implements UserService {
             user.setUserName(userName);
             user.setIsLoggedIn(true);
             user.setUserRole(UserRole.ADMIN);
-            MainApp.getEventBus().publishAsync(new LoginEvent(true, user, "login success"));
+            eventBus.publishAsync(new LoginEvent(true, user, "login success"));
             return true;
         } else if (userName.equals("user") && password.equals("user")){
             user = new User();
             user.setUserName(userName);
             user.setIsLoggedIn(true);
             user.setUserRole(UserRole.USER);
-            MainApp.getEventBus().publishAsync(new LoginEvent(true, user, "login success"));
+            eventBus.publishAsync(new LoginEvent(true, user, "login success"));
             return true;
         } else if (userName.equals("readonly") && password.equals("readonly")){
             user = new User();
             user.setUserName(userName);
             user.setIsLoggedIn(true);
             user.setUserRole(UserRole.READONLY);
-            MainApp.getEventBus().publishAsync(new LoginEvent(true, user, "login success"));
+            eventBus.publishAsync(new LoginEvent(true, user, "login success"));
             return true;
         }
         
-        MainApp.getEventBus().publishAsync(new LoginEvent(false, null, "Error: Login failed!"));
+        eventBus.publishAsync(new LoginEvent(false, null, "Error: Login failed!"));
         return false;
     }
 
@@ -50,7 +54,7 @@ public class LdapUserService implements UserService {
     public boolean logout() {
         if (user!=null){
             user = null;
-            MainApp.getEventBus().publishAsync(new LogoutEvent(true, "logout success"));
+            eventBus.publishAsync(new LogoutEvent(true, "logout success"));
         }
         return true;
     }

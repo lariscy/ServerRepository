@@ -1,6 +1,5 @@
 package com.bcbssc.serverrepo.client.controller;
 
-import com.bcbssc.serverrepo.client.MainApp;
 import com.bcbssc.serverrepo.client.event.AppCloseEvent;
 import com.bcbssc.serverrepo.client.event.AppHideEvent;
 import com.bcbssc.serverrepo.client.eventbus.LogoutEvent;
@@ -17,6 +16,7 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javax.inject.Inject;
+import net.engio.mbassy.bus.MBassador;
 import net.engio.mbassy.listener.Handler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -55,8 +55,10 @@ public class TopMenuController extends ChildController implements Initializable 
     
     @Inject
     private UserService userService;
-    @com.google.inject.Inject
+    @Inject
     private InfoBarStatusService infoBarStatusService;
+    @Inject
+    private MBassador eventBus;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -66,7 +68,7 @@ public class TopMenuController extends ChildController implements Initializable 
             (java.awt.SystemTray.isSupported() ? new AppHideEvent() : new AppCloseEvent())
         );
         
-        MainApp.getEventBus().subscribe(this);
+        eventBus.subscribe(this);
     }
     
     @FXML

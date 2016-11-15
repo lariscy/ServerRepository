@@ -3,7 +3,6 @@ package com.bcbssc.serverrepo.client;
 import com.bcbssc.serverrepo.client.event.AppCloseEvent;
 import com.bcbssc.serverrepo.client.event.AppCloseListener;
 import com.bcbssc.serverrepo.client.event.AppHideEvent;
-import com.bcbssc.serverrepo.client.eventbus.ServerRepoEvent;
 import com.bcbssc.serverrepo.client.guice.ServerRepoGuiceModule;
 import com.bcbssc.serverrepo.client.util.AppProps;
 import com.google.inject.Guice;
@@ -18,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javax.imageio.ImageIO;
+import javax.inject.Inject;
 import net.engio.mbassy.bus.MBassador;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,14 +29,14 @@ public class MainApp extends Application {
     private static AppProps appProps;
     private static Stage primaryStage;
     private static ClientLocation clientLocation;
-    private static MBassador<ServerRepoEvent> eventBus;
+    
+    @Inject
+    private MBassador eventBus;
     private static Injector injector = Guice.createInjector(new ServerRepoGuiceModule());
     
     @Override
     public void start(Stage primaryStage){
         LOG.info("starting application");
-        
-        eventBus = new MBassador<>();
         
         MainApp.primaryStage = primaryStage;
         clientLocation = new ClientLocation();
@@ -85,9 +85,9 @@ public class MainApp extends Application {
         return primaryStage;
     }
     
-    public static MBassador<ServerRepoEvent> getEventBus(){
-        return eventBus;
-    }
+//    public static MBassador<ServerRepoEvent> getEventBus(){
+//        return eventBus;
+//    }
     
     public static Injector getInjector(){
         return injector;

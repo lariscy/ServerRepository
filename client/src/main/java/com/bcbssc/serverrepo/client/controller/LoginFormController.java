@@ -6,7 +6,6 @@ import com.bcbssc.serverrepo.client.model.InfoBarStatus;
 import com.bcbssc.serverrepo.client.model.UserRole;
 import com.bcbssc.serverrepo.client.service.InfoBarStatusService;
 import com.bcbssc.serverrepo.client.service.UserService;
-import com.google.inject.Inject;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
@@ -17,6 +16,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javax.inject.Inject;
+import net.engio.mbassy.bus.MBassador;
 import net.engio.mbassy.listener.Handler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,16 +46,8 @@ public class LoginFormController extends ChildController implements Initializabl
     private UserService userService;
     @Inject
     private InfoBarStatusService infoBarStatusService;
-    
-//    private BooleanBinding textRequiredBinding = new BooleanBinding(){
-//        {
-//            super.bind(txtUsername.textProperty(), txtPassword.textProperty());
-//        }
-//        @Override
-//        protected boolean computeValue() {
-//            return (txtUsername.getText().isEmpty() && txtPassword.getText().isEmpty());
-//        }
-//    };
+    @Inject
+    private MBassador eventBus;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -73,7 +66,7 @@ public class LoginFormController extends ChildController implements Initializabl
         
         this.setLoginFocus();
         
-        MainApp.getEventBus().subscribe(this);
+        eventBus.subscribe(this);
     }
     
     public void setLoginFocus(){

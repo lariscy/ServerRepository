@@ -1,6 +1,5 @@
 package com.bcbssc.serverrepo.client.controller;
 
-import com.bcbssc.serverrepo.client.MainApp;
 import com.bcbssc.serverrepo.client.eventbus.InfoBarStatusEvent;
 import com.bcbssc.serverrepo.client.model.InfoBarStatus;
 import java.net.URL;
@@ -10,6 +9,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToolBar;
+import javax.inject.Inject;
+import net.engio.mbassy.bus.MBassador;
 import net.engio.mbassy.listener.Handler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,13 +29,16 @@ public class BottomInfoBarController extends ChildController implements Initiali
     @FXML
     private Label roleTxt;
     
+    @Inject
+    private MBassador eventBus;
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         LOG.debug("initializing");
         
         statusText.setText(InfoBarStatus.DISCONNECTED.getText());
         
-        MainApp.getEventBus().subscribe(this);
+        eventBus.subscribe(this);
     }
     
     @Handler

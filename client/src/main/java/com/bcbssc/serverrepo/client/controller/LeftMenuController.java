@@ -1,6 +1,5 @@
 package com.bcbssc.serverrepo.client.controller;
 
-import com.bcbssc.serverrepo.client.MainApp;
 import com.bcbssc.serverrepo.client.eventbus.LogoutEvent;
 import com.bcbssc.serverrepo.client.util.FontAwesome;
 import com.bcbssc.serverrepo.client.util.ToolTipUtil;
@@ -12,6 +11,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.VBox;
+import javax.inject.Inject;
+import net.engio.mbassy.bus.MBassador;
 import net.engio.mbassy.listener.Handler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,6 +31,9 @@ public class LeftMenuController extends ChildController implements Initializable
     @FXML
     private ToggleButton btnUrlList;
     
+    @Inject
+    private MBassador eventBus;
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         LOG.debug("initializing");
@@ -39,7 +43,7 @@ public class LeftMenuController extends ChildController implements Initializable
         
         this.setupToolTips();
         
-        MainApp.getEventBus().subscribe(this);
+        eventBus.subscribe(this);
     }
     
     private void setupToolTips(){
