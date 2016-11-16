@@ -1,7 +1,7 @@
 package com.github.lariscy.serverrepo.client.net;
 
-import com.github.lariscy.serverrepo.client.concurrent.ServerTreeManager;
 import io.netty.bootstrap.Bootstrap;
+import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
@@ -27,15 +27,20 @@ public class ServerRepoClient {
     private String serverHost = "127.0.0.1";
     private int serverPort = 3026;
     private EventLoopGroup group;
+    private Channel channel;
     
-    public ServerRepoClient(){ }
+    public ServerRepoClient(){
+        this.setupClient();
+    }
     
     public ServerRepoClient(String serverHost, int serverPort){
         this.serverHost = serverHost;
         this.serverPort = serverPort;
+        
+        this.setupClient();
     }
     
-    public void setupClient(ServerTreeManager serverTreeManager){
+    private void setupClient(){
         group = new NioEventLoopGroup();
 
         LOG.debug("initializing network client");
@@ -50,7 +55,7 @@ public class ServerRepoClient {
                         p.addLast(
                             new ObjectEncoder(),
                             new ObjectDecoder(ClassResolvers.cacheDisabled(null)),
-                            new ServerRepoClientHandler(serverTreeManager)
+                            new ServerRepoClientHandler()
                         );
                     }
                 });
@@ -59,6 +64,7 @@ public class ServerRepoClient {
         ChannelFuture channelFuture = b.connect(serverHost, serverPort);
         channelFuture.addListener((FutureListener<Void>) (Future<Void> f) -> {
             if (!f.isSuccess()) {
+                channel = channelFuture.channel();
                 LOG.error("exception during client connection", f.cause());
             } else if (f.isSuccess()){
                 LOG.debug("client connected successfully");
@@ -67,7 +73,12 @@ public class ServerRepoClient {
     }
     
     public void shutdownClient(){
+        LOG.debug("shutting down any remaining client connections");
         group.shutdownGracefully();
+    }
+    
+    public Channel getChannel(){
+        return channel;
     }
     
 }

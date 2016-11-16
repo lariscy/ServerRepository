@@ -18,24 +18,16 @@ public class ServerTreeController extends ChildController implements Initializab
     private static final Logger LOG = LoggerFactory.getLogger(ServerTreeController.class);
 
     @FXML
-    private TreeView treeView;
+    private TreeView<String> treeView;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         LOG.debug("initializing");
         
-        ServerTreeRunnable serverTreeRunnable = new ServerTreeRunnable(new ServerTreeManager(treeView));
-        Thread serverTreeThread = new Thread(serverTreeRunnable, "Server Tree Thread");
+        ServerTreeRunnable serverTreeRunnable = new ServerTreeRunnable();
+        Thread serverTreeThread = new Thread(serverTreeRunnable, "ServerTree Thread");
         serverTreeThread.setDaemon(true);
         serverTreeThread.start();
-        
-//        TreeItem<String> root = new TreeItem<>("Root");
-//        root.setExpanded(true);
-//        
-//        this.generateTestTreeData(root);
-//        
-//        treeView.setShowRoot(false);
-//        treeView.setRoot(root);
     }
     
 }

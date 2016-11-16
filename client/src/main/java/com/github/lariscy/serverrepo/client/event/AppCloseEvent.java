@@ -1,5 +1,6 @@
 package com.github.lariscy.serverrepo.client.event;
 
+import com.github.lariscy.serverrepo.client.MainApp;
 import javafx.application.Platform;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -18,7 +19,12 @@ public class AppCloseEvent implements EventHandler {
         LOG.debug("close request received");
         
         event.consume();
+        
+        MainApp.getClient().shutdownClient();
+        
         Platform.exit();
+        
+        LOG.debug("shutdown complete");
     }
     
 }

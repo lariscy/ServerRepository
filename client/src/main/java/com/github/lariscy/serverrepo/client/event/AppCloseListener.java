@@ -1,5 +1,6 @@
 package com.github.lariscy.serverrepo.client.event;
 
+import com.github.lariscy.serverrepo.client.MainApp;
 import java.awt.SystemTray;
 import java.awt.TrayIcon;
 import java.awt.event.ActionEvent;
@@ -30,11 +31,14 @@ public class AppCloseListener implements ActionListener {
         LOG.debug("close request received");
         //@TODO do stuff here to save application state (window size, location), etc. for next load
         
+        MainApp.getClient().shutdownClient();
+        
         Platform.runLater(Platform::exit);
         
         if (tray!=null && trayIcon!=null){
             tray.remove(trayIcon);
         }
+        LOG.debug("shutdown complete");
     }
     
 }

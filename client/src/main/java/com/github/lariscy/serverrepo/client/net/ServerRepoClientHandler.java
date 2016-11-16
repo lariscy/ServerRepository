@@ -1,8 +1,9 @@
 package com.github.lariscy.serverrepo.client.net;
 
-import com.github.lariscy.serverrepo.client.concurrent.ServerTreeManager;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
+import javax.inject.Inject;
+import net.engio.mbassy.bus.MBassador;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,12 +13,9 @@ import org.slf4j.LoggerFactory;
 public class ServerRepoClientHandler extends ChannelInboundHandlerAdapter {
     
     private static final Logger LOG = LoggerFactory.getLogger(ServerRepoClientHandler.class);
-
-    private ServerTreeManager serverTreeManager;
     
-    public ServerRepoClientHandler(ServerTreeManager serverTreeManager){
-        this.serverTreeManager = serverTreeManager;
-    }
+    @Inject
+    private MBassador eventBus;
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause){

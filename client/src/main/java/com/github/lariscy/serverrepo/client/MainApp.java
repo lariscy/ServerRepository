@@ -4,6 +4,7 @@ import com.github.lariscy.serverrepo.client.event.AppCloseEvent;
 import com.github.lariscy.serverrepo.client.event.AppCloseListener;
 import com.github.lariscy.serverrepo.client.event.AppHideEvent;
 import com.github.lariscy.serverrepo.client.guice.ServerRepoGuiceModule;
+import com.github.lariscy.serverrepo.client.net.ServerRepoClient;
 import com.github.lariscy.serverrepo.client.util.AppProps;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
@@ -32,10 +33,11 @@ public class MainApp extends Application {
     private static AppProps appProps;
     private static Stage primaryStage;
     private static ClientLocation clientLocation;
+    private static Injector injector = Guice.createInjector(new ServerRepoGuiceModule());
+    private static ServerRepoClient client = new ServerRepoClient();
     
     @Inject
     private MBassador eventBus;
-    private static Injector injector = Guice.createInjector(new ServerRepoGuiceModule());
     
     @Override
     public void start(Stage primaryStage){
@@ -90,6 +92,10 @@ public class MainApp extends Application {
     
     public static Injector getInjector(){
         return injector;
+    }
+    
+    public static ServerRepoClient getClient(){
+        return client;
     }
     
     private void addAppToTray(){

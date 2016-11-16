@@ -14,14 +14,15 @@ public class ServerTreeManager {
     
     private static final Logger LOG = LoggerFactory.getLogger(ServerTreeManager.class);
     
-    private TreeView treeView;
+    private TreeView<String> treeView;
 
-    public ServerTreeManager(TreeView treeView) {
+    public ServerTreeManager(TreeView<String> treeView) {
         this.treeView = treeView;
     }
     
     public void generateTestTreeData(){
         LOG.debug("TEST: generating test data for TreeView");
+        
         TreeItem<String> root = new TreeItem<>("Root");
         root.setExpanded(true);
         
