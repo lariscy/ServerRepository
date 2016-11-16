@@ -1,795 +1,820 @@
 package com.bcbssc.serverrepo.client.util;
 
+import javafx.scene.Node;
+import javafx.scene.text.Text;
+
 /**
  * @author jw38
  */
 public class FontAwesome {
+
+    public static Node getNode(FontAwesome.Glyph glyph) {
+        return new Text(glyph.getString());
+    }
     
-    public static final String GLASS = "\uf000";
-    public static final String MUSIC = "\uf001";
-    public static final String SEARCH = "\uf002";
-    public static final String ENVELOPE_O = "\uf003";
-    public static final String HEART = "\uf004";
-    public static final String STAR = "\uf005";
-    public static final String STAR_O = "\uf006";
-    public static final String USER = "\uf007";
-    public static final String FILM = "\uf008";
-    public static final String TH_LARGE = "\uf009";
-    public static final String TH = "\uf00a";
-    public static final String TH_LIST = "\uf00b";
-    public static final String CHECK = "\uf00c";
-    public static final String REMOVE = "\uf00d";
-    public static final String CLOSE = "\uf00d";
-    public static final String TIMES = "\uf00d";
-    public static final String SEARCH_PLUS = "\uf00e";
-    public static final String SEARCH_MINUS = "\uf010";
-    public static final String POWER_OFF = "\uf011";
-    public static final String SIGNAL = "\uf012";
-    public static final String GEAR = "\uf013";
-    public static final String COG = "\uf013";
-    public static final String TRASH_O = "\uf014";
-    public static final String HOME = "\uf015";
-    public static final String FILE_O = "\uf016";
-    public static final String CLOCK_O = "\uf017";
-    public static final String ROAD = "\uf018";
-    public static final String DOWNLOAD = "\uf019";
-    public static final String ARROW_CIRCLE_O_DOWN = "\uf01a";
-    public static final String ARROW_CIRCLE_O_UP = "\uf01b";
-    public static final String INBOX = "\uf01c";
-    public static final String PLAY_CIRCLE_O = "\uf01d";
-    public static final String ROTATE_RIGHT = "\uf01e";
-    public static final String REPEAT = "\uf01e";
-    public static final String REFRESH = "\uf021";
-    public static final String LIST_ALT = "\uf022";
-    public static final String LOCK = "\uf023";
-    public static final String FLAG = "\uf024";
-    public static final String HEADPHONES = "\uf025";
-    public static final String VOLUME_OFF = "\uf026";
-    public static final String VOLUME_DOWN = "\uf027";
-    public static final String VOLUME_UP = "\uf028";
-    public static final String QRCODE = "\uf029";
-    public static final String BARCODE = "\uf02a";
-    public static final String TAG = "\uf02b";
-    public static final String TAGS = "\uf02c";
-    public static final String BOOK = "\uf02d";
-    public static final String BOOKMARK = "\uf02e";
-    public static final String PRINT = "\uf02f";
-    public static final String CAMERA = "\uf030";
-    public static final String FONT = "\uf031";
-    public static final String BOLD = "\uf032";
-    public static final String ITALIC = "\uf033";
-    public static final String TEXT_HEIGHT = "\uf034";
-    public static final String TEXT_WIDTH = "\uf035";
-    public static final String ALIGN_LEFT = "\uf036";
-    public static final String ALIGN_CENTER = "\uf037";
-    public static final String ALIGN_RIGHT = "\uf038";
-    public static final String ALIGN_JUSTIFY = "\uf039";
-    public static final String LIST = "\uf03a";
-    public static final String DEDENT = "\uf03b";
-    public static final String OUTDENT = "\uf03b";
-    public static final String INDENT = "\uf03c";
-    public static final String VIDEO_CAMERA = "\uf03d";
-    public static final String PHOTO = "\uf03e";
-    public static final String IMAGE = "\uf03e";
-    public static final String PICTURE_O = "\uf03e";
-    public static final String PENCIL = "\uf040";
-    public static final String MAP_MARKER = "\uf041";
-    public static final String ADJUST = "\uf042";
-    public static final String TINT = "\uf043";
-    public static final String EDIT = "\uf044";
-    public static final String PENCIL_SQUARE_O = "\uf044";
-    public static final String SHARE_SQUARE_O = "\uf045";
-    public static final String CHECK_SQUARE_O = "\uf046";
-    public static final String ARROWS = "\uf047";
-    public static final String STEP_BACKWARD = "\uf048";
-    public static final String FAST_BACKWARD = "\uf049";
-    public static final String BACKWARD = "\uf04a";
-    public static final String PLAY = "\uf04b";
-    public static final String PAUSE = "\uf04c";
-    public static final String STOP = "\uf04d";
-    public static final String FORWARD = "\uf04e";
-    public static final String FAST_FORWARD = "\uf050";
-    public static final String STEP_FORWARD = "\uf051";
-    public static final String EJECT = "\uf052";
-    public static final String CHEVRON_LEFT = "\uf053";
-    public static final String CHEVRON_RIGHT = "\uf054";
-    public static final String PLUS_CIRCLE = "\uf055";
-    public static final String MINUS_CIRCLE = "\uf056";
-    public static final String TIMES_CIRCLE = "\uf057";
-    public static final String CHECK_CIRCLE = "\uf058";
-    public static final String QUESTION_CIRCLE = "\uf059";
-    public static final String INFO_CIRCLE = "\uf05a";
-    public static final String CROSSHAIRS = "\uf05b";
-    public static final String TIMES_CIRCLE_O = "\uf05c";
-    public static final String CHECK_CIRCLE_O = "\uf05d";
-    public static final String BAN = "\uf05e";
-    public static final String ARROW_LEFT = "\uf060";
-    public static final String ARROW_RIGHT = "\uf061";
-    public static final String ARROW_UP = "\uf062";
-    public static final String ARROW_DOWN = "\uf063";
-    public static final String MAIL_FORWARD = "\uf064";
-    public static final String SHARE = "\uf064";
-    public static final String EXPAND = "\uf065";
-    public static final String COMPRESS = "\uf066";
-    public static final String PLUS = "\uf067";
-    public static final String MINUS = "\uf068";
-    public static final String ASTERISK = "\uf069";
-    public static final String EXCLAMATION_CIRCLE = "\uf06a";
-    public static final String GIFT = "\uf06b";
-    public static final String LEAF = "\uf06c";
-    public static final String FIRE = "\uf06d";
-    public static final String EYE = "\uf06e";
-    public static final String EYE_SLASH = "\uf070";
-    public static final String WARNING = "\uf071";
-    public static final String EXCLAMATION_TRIANGLE = "\uf071";
-    public static final String PLANE = "\uf072";
-    public static final String CALENDAR = "\uf073";
-    public static final String RANDOM = "\uf074";
-    public static final String COMMENT = "\uf075";
-    public static final String MAGNET = "\uf076";
-    public static final String CHEVRON_UP = "\uf077";
-    public static final String CHEVRON_DOWN = "\uf078";
-    public static final String RETWEET = "\uf079";
-    public static final String SHOPPING_CART = "\uf07a";
-    public static final String FOLDER = "\uf07b";
-    public static final String FOLDER_OPEN = "\uf07c";
-    public static final String ARROWS_V = "\uf07d";
-    public static final String ARROWS_H = "\uf07e";
-    public static final String BAR_CHART_O = "\uf080";
-    public static final String BAR_CHART = "\uf080";
-    public static final String TWITTER_SQUARE = "\uf081";
-    public static final String FACEBOOK_SQUARE = "\uf082";
-    public static final String CAMERA_RETRO = "\uf083";
-    public static final String KEY = "\uf084";
-    public static final String GEARS = "\uf085";
-    public static final String COGS = "\uf085";
-    public static final String COMMENTS = "\uf086";
-    public static final String THUMBS_O_UP = "\uf087";
-    public static final String THUMBS_O_DOWN = "\uf088";
-    public static final String STAR_HALF = "\uf089";
-    public static final String HEART_O = "\uf08a";
-    public static final String SIGN_OUT = "\uf08b";
-    public static final String LINKEDIN_SQUARE = "\uf08c";
-    public static final String THUMB_TACK = "\uf08d";
-    public static final String EXTERNAL_LINK = "\uf08e";
-    public static final String SIGN_IN = "\uf090";
-    public static final String TROPHY = "\uf091";
-    public static final String GITHUB_SQUARE = "\uf092";
-    public static final String UPLOAD = "\uf093";
-    public static final String LEMON_O = "\uf094";
-    public static final String PHONE = "\uf095";
-    public static final String SQUARE_O = "\uf096";
-    public static final String BOOKMARK_O = "\uf097";
-    public static final String PHONE_SQUARE = "\uf098";
-    public static final String TWITTER = "\uf099";
-    public static final String FACEBOOK_F = "\uf09a";
-    public static final String FACEBOOK = "\uf09a";
-    public static final String GITHUB = "\uf09b";
-    public static final String UNLOCK = "\uf09c";
-    public static final String CREDIT_CARD = "\uf09d";
-    public static final String FEED = "\uf09e";
-    public static final String RSS = "\uf09e";
-    public static final String HDD_O = "\uf0a0";
-    public static final String BULLHORN = "\uf0a1";
-    public static final String BELL = "\uf0f3";
-    public static final String CERTIFICATE = "\uf0a3";
-    public static final String HAND_O_RIGHT = "\uf0a4";
-    public static final String HAND_O_LEFT = "\uf0a5";
-    public static final String HAND_O_UP = "\uf0a6";
-    public static final String HAND_O_DOWN = "\uf0a7";
-    public static final String ARROW_CIRCLE_LEFT = "\uf0a8";
-    public static final String ARROW_CIRCLE_RIGHT = "\uf0a9";
-    public static final String ARROW_CIRCLE_UP = "\uf0aa";
-    public static final String ARROW_CIRCLE_DOWN = "\uf0ab";
-    public static final String GLOBE = "\uf0ac";
-    public static final String WRENCH = "\uf0ad";
-    public static final String TASKS = "\uf0ae";
-    public static final String FILTER = "\uf0b0";
-    public static final String BRIEFCASE = "\uf0b1";
-    public static final String ARROWS_ALT = "\uf0b2";
-    public static final String GROUP = "\uf0c0";
-    public static final String USERS = "\uf0c0";
-    public static final String CHAIN = "\uf0c1";
-    public static final String LINK = "\uf0c1";
-    public static final String CLOUD = "\uf0c2";
-    public static final String FLASK = "\uf0c3";
-    public static final String CUT = "\uf0c4";
-    public static final String SCISSORS = "\uf0c4";
-    public static final String COPY = "\uf0c5";
-    public static final String FILES_O = "\uf0c5";
-    public static final String PAPERCLIP = "\uf0c6";
-    public static final String SAVE = "\uf0c7";
-    public static final String FLOPPY_O = "\uf0c7";
-    public static final String SQUARE = "\uf0c8";
-    public static final String NAVICON = "\uf0c9";
-    public static final String REORDER = "\uf0c9";
-    public static final String BARS = "\uf0c9";
-    public static final String LIST_UL = "\uf0ca";
-    public static final String LIST_OL = "\uf0cb";
-    public static final String STRIKETHROUGH = "\uf0cc";
-    public static final String UNDERLINE = "\uf0cd";
-    public static final String TABLE = "\uf0ce";
-    public static final String MAGIC = "\uf0d0";
-    public static final String TRUCK = "\uf0d1";
-    public static final String PINTEREST = "\uf0d2";
-    public static final String PINTEREST_SQUARE = "\uf0d3";
-    public static final String GOOGLE_PLUS_SQUARE = "\uf0d4";
-    public static final String GOOGLE_PLUS = "\uf0d5";
-    public static final String MONEY = "\uf0d6";
-    public static final String CARET_DOWN = "\uf0d7";
-    public static final String CARET_UP = "\uf0d8";
-    public static final String CARET_LEFT = "\uf0d9";
-    public static final String CARET_RIGHT = "\uf0da";
-    public static final String COLUMNS = "\uf0db";
-    public static final String UNSORTED = "\uf0dc";
-    public static final String SORT = "\uf0dc";
-    public static final String SORT_DOWN = "\uf0dd";
-    public static final String SORT_DESC = "\uf0dd";
-    public static final String SORT_UP = "\uf0de";
-    public static final String SORT_ASC = "\uf0de";
-    public static final String ENVELOPE = "\uf0e0";
-    public static final String LINKEDIN = "\uf0e1";
-    public static final String ROTATE_LEFT = "\uf0e2";
-    public static final String UNDO = "\uf0e2";
-    public static final String LEGAL = "\uf0e3";
-    public static final String GAVEL = "\uf0e3";
-    public static final String DASHBOARD = "\uf0e4";
-    public static final String TACHOMETER = "\uf0e4";
-    public static final String COMMENT_O = "\uf0e5";
-    public static final String COMMENTS_O = "\uf0e6";
-    public static final String FLASH = "\uf0e7";
-    public static final String BOLT = "\uf0e7";
-    public static final String SITEMAP = "\uf0e8";
-    public static final String UMBRELLA = "\uf0e9";
-    public static final String PASTE = "\uf0ea";
-    public static final String CLIPBOARD = "\uf0ea";
-    public static final String LIGHTBULB_O = "\uf0eb";
-    public static final String EXCHANGE = "\uf0ec";
-    public static final String CLOUD_DOWNLOAD = "\uf0ed";
-    public static final String CLOUD_UPLOAD = "\uf0ee";
-    public static final String USER_MD = "\uf0f0";
-    public static final String STETHOSCOPE = "\uf0f1";
-    public static final String SUITCASE = "\uf0f2";
-    public static final String BELL_O = "\uf0a2";
-    public static final String COFFEE = "\uf0f4";
-    public static final String CUTLERY = "\uf0f5";
-    public static final String FILE_TEXT_O = "\uf0f6";
-    public static final String BUILDING_O = "\uf0f7";
-    public static final String HOSPITAL_O = "\uf0f8";
-    public static final String AMBULANCE = "\uf0f9";
-    public static final String MEDKIT = "\uf0fa";
-    public static final String FIGHTER_JET = "\uf0fb";
-    public static final String BEER = "\uf0fc";
-    public static final String H_SQUARE = "\uf0fd";
-    public static final String PLUS_SQUARE = "\uf0fe";
-    public static final String ANGLE_DOUBLE_LEFT = "\uf100";
-    public static final String ANGLE_DOUBLE_RIGHT = "\uf101";
-    public static final String ANGLE_DOUBLE_UP = "\uf102";
-    public static final String ANGLE_DOUBLE_DOWN = "\uf103";
-    public static final String ANGLE_LEFT = "\uf104";
-    public static final String ANGLE_RIGHT = "\uf105";
-    public static final String ANGLE_UP = "\uf106";
-    public static final String ANGLE_DOWN = "\uf107";
-    public static final String DESKTOP = "\uf108";
-    public static final String LAPTOP = "\uf109";
-    public static final String TABLET = "\uf10a";
-    public static final String MOBILE_PHONE = "\uf10b";
-    public static final String MOBILE = "\uf10b";
-    public static final String CIRCLE_O = "\uf10c";
-    public static final String QUOTE_LEFT = "\uf10d";
-    public static final String QUOTE_RIGHT = "\uf10e";
-    public static final String SPINNER = "\uf110";
-    public static final String CIRCLE = "\uf111";
-    public static final String MAIL_REPLY = "\uf112";
-    public static final String REPLY = "\uf112";
-    public static final String GITHUB_ALT = "\uf113";
-    public static final String FOLDER_O = "\uf114";
-    public static final String FOLDER_OPEN_O = "\uf115";
-    public static final String SMILE_O = "\uf118";
-    public static final String FROWN_O = "\uf119";
-    public static final String MEH_O = "\uf11a";
-    public static final String GAMEPAD = "\uf11b";
-    public static final String KEYBOARD_O = "\uf11c";
-    public static final String FLAG_O = "\uf11d";
-    public static final String FLAG_CHECKERED = "\uf11e";
-    public static final String TERMINAL = "\uf120";
-    public static final String CODE = "\uf121";
-    public static final String MAIL_REPLY_ALL = "\uf122";
-    public static final String REPLY_ALL = "\uf122";
-    public static final String STAR_HALF_EMPTY = "\uf123";
-    public static final String STAR_HALF_FULL = "\uf123";
-    public static final String STAR_HALF_O = "\uf123";
-    public static final String LOCATION_ARROW = "\uf124";
-    public static final String CROP = "\uf125";
-    public static final String CODE_FORK = "\uf126";
-    public static final String UNLINK = "\uf127";
-    public static final String CHAIN_BROKEN = "\uf127";
-    public static final String QUESTION = "\uf128";
-    public static final String INFO = "\uf129";
-    public static final String EXCLAMATION = "\uf12a";
-    public static final String SUPERSCRIPT = "\uf12b";
-    public static final String SUBSCRIPT = "\uf12c";
-    public static final String ERASER = "\uf12d";
-    public static final String PUZZLE_PIECE = "\uf12e";
-    public static final String MICROPHONE = "\uf130";
-    public static final String MICROPHONE_SLASH = "\uf131";
-    public static final String SHIELD = "\uf132";
-    public static final String CALENDAR_O = "\uf133";
-    public static final String FIRE_EXTINGUISHER = "\uf134";
-    public static final String ROCKET = "\uf135";
-    public static final String MAXCDN = "\uf136";
-    public static final String CHEVRON_CIRCLE_LEFT = "\uf137";
-    public static final String CHEVRON_CIRCLE_RIGHT = "\uf138";
-    public static final String CHEVRON_CIRCLE_UP = "\uf139";
-    public static final String CHEVRON_CIRCLE_DOWN = "\uf13a";
-    public static final String HTML5 = "\uf13b";
-    public static final String CSS3 = "\uf13c";
-    public static final String ANCHOR = "\uf13d";
-    public static final String UNLOCK_ALT = "\uf13e";
-    public static final String BULLSEYE = "\uf140";
-    public static final String ELLIPSIS_H = "\uf141";
-    public static final String ELLIPSIS_V = "\uf142";
-    public static final String RSS_SQUARE = "\uf143";
-    public static final String PLAY_CIRCLE = "\uf144";
-    public static final String TICKET = "\uf145";
-    public static final String MINUS_SQUARE = "\uf146";
-    public static final String MINUS_SQUARE_O = "\uf147";
-    public static final String LEVEL_UP = "\uf148";
-    public static final String LEVEL_DOWN = "\uf149";
-    public static final String CHECK_SQUARE = "\uf14a";
-    public static final String PENCIL_SQUARE = "\uf14b";
-    public static final String EXTERNAL_LINK_SQUARE = "\uf14c";
-    public static final String SHARE_SQUARE = "\uf14d";
-    public static final String COMPASS = "\uf14e";
-    public static final String TOGGLE_DOWN = "\uf150";
-    public static final String CARET_SQUARE_O_DOWN = "\uf150";
-    public static final String TOGGLE_UP = "\uf151";
-    public static final String CARET_SQUARE_O_UP = "\uf151";
-    public static final String TOGGLE_RIGHT = "\uf152";
-    public static final String CARET_SQUARE_O_RIGHT = "\uf152";
-    public static final String EURO = "\uf153";
-    public static final String EUR = "\uf153";
-    public static final String GBP = "\uf154";
-    public static final String DOLLAR = "\uf155";
-    public static final String USD = "\uf155";
-    public static final String RUPEE = "\uf156";
-    public static final String INR = "\uf156";
-    public static final String CNY = "\uf157";
-    public static final String RMB = "\uf157";
-    public static final String YEN = "\uf157";
-    public static final String JPY = "\uf157";
-    public static final String RUBLE = "\uf158";
-    public static final String ROUBLE = "\uf158";
-    public static final String RUB = "\uf158";
-    public static final String WON = "\uf159";
-    public static final String KRW = "\uf159";
-    public static final String BITCOIN = "\uf15a";
-    public static final String BTC = "\uf15a";
-    public static final String FILE = "\uf15b";
-    public static final String FILE_TEXT = "\uf15c";
-    public static final String SORT_ALPHA_ASC = "\uf15d";
-    public static final String SORT_ALPHA_DESC = "\uf15e";
-    public static final String SORT_AMOUNT_ASC = "\uf160";
-    public static final String SORT_AMOUNT_DESC = "\uf161";
-    public static final String SORT_NUMERIC_ASC = "\uf162";
-    public static final String SORT_NUMERIC_DESC = "\uf163";
-    public static final String THUMBS_UP = "\uf164";
-    public static final String THUMBS_DOWN = "\uf165";
-    public static final String YOUTUBE_SQUARE = "\uf166";
-    public static final String YOUTUBE = "\uf167";
-    public static final String XING = "\uf168";
-    public static final String XING_SQUARE = "\uf169";
-    public static final String YOUTUBE_PLAY = "\uf16a";
-    public static final String DROPBOX = "\uf16b";
-    public static final String STACK_OVERFLOW = "\uf16c";
-    public static final String INSTAGRAM = "\uf16d";
-    public static final String FLICKR = "\uf16e";
-    public static final String ADN = "\uf170";
-    public static final String BITBUCKET = "\uf171";
-    public static final String BITBUCKET_SQUARE = "\uf172";
-    public static final String TUMBLR = "\uf173";
-    public static final String TUMBLR_SQUARE = "\uf174";
-    public static final String LONG_ARROW_DOWN = "\uf175";
-    public static final String LONG_ARROW_UP = "\uf176";
-    public static final String LONG_ARROW_LEFT = "\uf177";
-    public static final String LONG_ARROW_RIGHT = "\uf178";
-    public static final String APPLE = "\uf179";
-    public static final String WINDOWS = "\uf17a";
-    public static final String ANDROID = "\uf17b";
-    public static final String LINUX = "\uf17c";
-    public static final String DRIBBBLE = "\uf17d";
-    public static final String SKYPE = "\uf17e";
-    public static final String FOURSQUARE = "\uf180";
-    public static final String TRELLO = "\uf181";
-    public static final String FEMALE = "\uf182";
-    public static final String MALE = "\uf183";
-    public static final String GITTIP = "\uf184";
-    public static final String GRATIPAY = "\uf184";
-    public static final String SUN_O = "\uf185";
-    public static final String MOON_O = "\uf186";
-    public static final String ARCHIVE = "\uf187";
-    public static final String BUG = "\uf188";
-    public static final String VK = "\uf189";
-    public static final String WEIBO = "\uf18a";
-    public static final String RENREN = "\uf18b";
-    public static final String PAGELINES = "\uf18c";
-    public static final String STACK_EXCHANGE = "\uf18d";
-    public static final String ARROW_CIRCLE_O_RIGHT = "\uf18e";
-    public static final String ARROW_CIRCLE_O_LEFT = "\uf190";
-    public static final String TOGGLE_LEFT = "\uf191";
-    public static final String CARET_SQUARE_O_LEFT = "\uf191";
-    public static final String DOT_CIRCLE_O = "\uf192";
-    public static final String WHEELCHAIR = "\uf193";
-    public static final String VIMEO_SQUARE = "\uf194";
-    public static final String TURKISH_LIRA = "\uf195";
-    public static final String TRY = "\uf195";
-    public static final String PLUS_SQUARE_O = "\uf196";
-    public static final String SPACE_SHUTTLE = "\uf197";
-    public static final String SLACK = "\uf198";
-    public static final String ENVELOPE_SQUARE = "\uf199";
-    public static final String WORDPRESS = "\uf19a";
-    public static final String OPENID = "\uf19b";
-    public static final String INSTITUTION = "\uf19c";
-    public static final String BANK = "\uf19c";
-    public static final String UNIVERSITY = "\uf19c";
-    public static final String MORTAR_BOARD = "\uf19d";
-    public static final String GRADUATION_CAP = "\uf19d";
-    public static final String YAHOO = "\uf19e";
-    public static final String GOOGLE = "\uf1a0";
-    public static final String REDDIT = "\uf1a1";
-    public static final String REDDIT_SQUARE = "\uf1a2";
-    public static final String STUMBLEUPON_CIRCLE = "\uf1a3";
-    public static final String STUMBLEUPON = "\uf1a4";
-    public static final String DELICIOUS = "\uf1a5";
-    public static final String DIGG = "\uf1a6";
-    public static final String PIED_PIPER_PP = "\uf1a7";
-    public static final String PIED_PIPER_ALT = "\uf1a8";
-    public static final String DRUPAL = "\uf1a9";
-    public static final String JOOMLA = "\uf1aa";
-    public static final String LANGUAGE = "\uf1ab";
-    public static final String FAX = "\uf1ac";
-    public static final String BUILDING = "\uf1ad";
-    public static final String CHILD = "\uf1ae";
-    public static final String PAW = "\uf1b0";
-    public static final String SPOON = "\uf1b1";
-    public static final String CUBE = "\uf1b2";
-    public static final String CUBES = "\uf1b3";
-    public static final String BEHANCE = "\uf1b4";
-    public static final String BEHANCE_SQUARE = "\uf1b5";
-    public static final String STEAM = "\uf1b6";
-    public static final String STEAM_SQUARE = "\uf1b7";
-    public static final String RECYCLE = "\uf1b8";
-    public static final String AUTOMOBILE = "\uf1b9";
-    public static final String CAR = "\uf1b9";
-    public static final String CAB = "\uf1ba";
-    public static final String TAXI = "\uf1ba";
-    public static final String TREE = "\uf1bb";
-    public static final String SPOTIFY = "\uf1bc";
-    public static final String DEVIANTART = "\uf1bd";
-    public static final String SOUNDCLOUD = "\uf1be";
-    public static final String DATABASE = "\uf1c0";
-    public static final String FILE_PDF_O = "\uf1c1";
-    public static final String FILE_WORD_O = "\uf1c2";
-    public static final String FILE_EXCEL_O = "\uf1c3";
-    public static final String FILE_POWERPOINT_O = "\uf1c4";
-    public static final String FILE_PHOTO_O = "\uf1c5";
-    public static final String FILE_PICTURE_O = "\uf1c5";
-    public static final String FILE_IMAGE_O = "\uf1c5";
-    public static final String FILE_ZIP_O = "\uf1c6";
-    public static final String FILE_ARCHIVE_O = "\uf1c6";
-    public static final String FILE_SOUND_O = "\uf1c7";
-    public static final String FILE_AUDIO_O = "\uf1c7";
-    public static final String FILE_MOVIE_O = "\uf1c8";
-    public static final String FILE_VIDEO_O = "\uf1c8";
-    public static final String FILE_CODE_O = "\uf1c9";
-    public static final String VINE = "\uf1ca";
-    public static final String CODEPEN = "\uf1cb";
-    public static final String JSFIDDLE = "\uf1cc";
-    public static final String LIFE_BOUY = "\uf1cd";
-    public static final String LIFE_BUOY = "\uf1cd";
-    public static final String LIFE_SAVER = "\uf1cd";
-    public static final String SUPPORT = "\uf1cd";
-    public static final String LIFE_RING = "\uf1cd";
-    public static final String CIRCLE_O_NOTCH = "\uf1ce";
-    public static final String RA = "\uf1d0";
-    public static final String RESISTANCE = "\uf1d0";
-    public static final String REBEL = "\uf1d0";
-    public static final String GE = "\uf1d1";
-    public static final String EMPIRE = "\uf1d1";
-    public static final String GIT_SQUARE = "\uf1d2";
-    public static final String GIT = "\uf1d3";
-    public static final String Y_COMBINATOR_SQUARE = "\uf1d4";
-    public static final String YC_SQUARE = "\uf1d4";
-    public static final String HACKER_NEWS = "\uf1d4";
-    public static final String TENCENT_WEIBO = "\uf1d5";
-    public static final String QQ = "\uf1d6";
-    public static final String WECHAT = "\uf1d7";
-    public static final String WEIXIN = "\uf1d7";
-    public static final String SEND = "\uf1d8";
-    public static final String PAPER_PLANE = "\uf1d8";
-    public static final String SEND_O = "\uf1d9";
-    public static final String PAPER_PLANE_O = "\uf1d9";
-    public static final String HISTORY = "\uf1da";
-    public static final String CIRCLE_THIN = "\uf1db";
-    public static final String HEADER = "\uf1dc";
-    public static final String PARAGRAPH = "\uf1dd";
-    public static final String SLIDERS = "\uf1de";
-    public static final String SHARE_ALT = "\uf1e0";
-    public static final String SHARE_ALT_SQUARE = "\uf1e1";
-    public static final String BOMB = "\uf1e2";
-    public static final String SOCCER_BALL_O = "\uf1e3";
-    public static final String FUTBOL_O = "\uf1e3";
-    public static final String TTY = "\uf1e4";
-    public static final String BINOCULARS = "\uf1e5";
-    public static final String PLUG = "\uf1e6";
-    public static final String SLIDESHARE = "\uf1e7";
-    public static final String TWITCH = "\uf1e8";
-    public static final String YELP = "\uf1e9";
-    public static final String NEWSPAPER_O = "\uf1ea";
-    public static final String WIFI = "\uf1eb";
-    public static final String CALCULATOR = "\uf1ec";
-    public static final String PAYPAL = "\uf1ed";
-    public static final String GOOGLE_WALLET = "\uf1ee";
-    public static final String CC_VISA = "\uf1f0";
-    public static final String CC_MASTERCARD = "\uf1f1";
-    public static final String CC_DISCOVER = "\uf1f2";
-    public static final String CC_AMEX = "\uf1f3";
-    public static final String CC_PAYPAL = "\uf1f4";
-    public static final String CC_STRIPE = "\uf1f5";
-    public static final String BELL_SLASH = "\uf1f6";
-    public static final String BELL_SLASH_O = "\uf1f7";
-    public static final String TRASH = "\uf1f8";
-    public static final String COPYRIGHT = "\uf1f9";
-    public static final String AT = "\uf1fa";
-    public static final String EYEDROPPER = "\uf1fb";
-    public static final String PAINT_BRUSH = "\uf1fc";
-    public static final String BIRTHDAY_CAKE = "\uf1fd";
-    public static final String AREA_CHART = "\uf1fe";
-    public static final String PIE_CHART = "\uf200";
-    public static final String LINE_CHART = "\uf201";
-    public static final String LASTFM = "\uf202";
-    public static final String LASTFM_SQUARE = "\uf203";
-    public static final String TOGGLE_OFF = "\uf204";
-    public static final String TOGGLE_ON = "\uf205";
-    public static final String BICYCLE = "\uf206";
-    public static final String BUS = "\uf207";
-    public static final String IOXHOST = "\uf208";
-    public static final String ANGELLIST = "\uf209";
-    public static final String CC = "\uf20a";
-    public static final String SHEKEL = "\uf20b";
-    public static final String SHEQEL = "\uf20b";
-    public static final String ILS = "\uf20b";
-    public static final String MEANPATH = "\uf20c";
-    public static final String BUYSELLADS = "\uf20d";
-    public static final String CONNECTDEVELOP = "\uf20e";
-    public static final String DASHCUBE = "\uf210";
-    public static final String FORUMBEE = "\uf211";
-    public static final String LEANPUB = "\uf212";
-    public static final String SELLSY = "\uf213";
-    public static final String SHIRTSINBULK = "\uf214";
-    public static final String SIMPLYBUILT = "\uf215";
-    public static final String SKYATLAS = "\uf216";
-    public static final String CART_PLUS = "\uf217";
-    public static final String CART_ARROW_DOWN = "\uf218";
-    public static final String DIAMOND = "\uf219";
-    public static final String SHIP = "\uf21a";
-    public static final String USER_SECRET = "\uf21b";
-    public static final String MOTORCYCLE = "\uf21c";
-    public static final String STREET_VIEW = "\uf21d";
-    public static final String HEARTBEAT = "\uf21e";
-    public static final String VENUS = "\uf221";
-    public static final String MARS = "\uf222";
-    public static final String MERCURY = "\uf223";
-    public static final String INTERSEX = "\uf224";
-    public static final String TRANSGENDER = "\uf224";
-    public static final String TRANSGENDER_ALT = "\uf225";
-    public static final String VENUS_DOUBLE = "\uf226";
-    public static final String MARS_DOUBLE = "\uf227";
-    public static final String VENUS_MARS = "\uf228";
-    public static final String MARS_STROKE = "\uf229";
-    public static final String MARS_STROKE_V = "\uf22a";
-    public static final String MARS_STROKE_H = "\uf22b";
-    public static final String NEUTER = "\uf22c";
-    public static final String GENDERLESS = "\uf22d";
-    public static final String FACEBOOK_OFFICIAL = "\uf230";
-    public static final String PINTEREST_P = "\uf231";
-    public static final String WHATSAPP = "\uf232";
-    public static final String SERVER = "\uf233";
-    public static final String USER_PLUS = "\uf234";
-    public static final String USER_TIMES = "\uf235";
-    public static final String HOTEL = "\uf236";
-    public static final String BED = "\uf236";
-    public static final String VIACOIN = "\uf237";
-    public static final String TRAIN = "\uf238";
-    public static final String SUBWAY = "\uf239";
-    public static final String MEDIUM = "\uf23a";
-    public static final String YC = "\uf23b";
-    public static final String Y_COMBINATOR = "\uf23b";
-    public static final String OPTIN_MONSTER = "\uf23c";
-    public static final String OPENCART = "\uf23d";
-    public static final String EXPEDITEDSSL = "\uf23e";
-    public static final String BATTERY_4 = "\uf240";
-    public static final String BATTERY = "\uf240";
-    public static final String BATTERY_FULL = "\uf240";
-    public static final String BATTERY_3 = "\uf241";
-    public static final String BATTERY_THREE_QUARTERS = "\uf241";
-    public static final String BATTERY_2 = "\uf242";
-    public static final String BATTERY_HALF = "\uf242";
-    public static final String BATTERY_1 = "\uf243";
-    public static final String BATTERY_QUARTER = "\uf243";
-    public static final String BATTERY_0 = "\uf244";
-    public static final String BATTERY_EMPTY = "\uf244";
-    public static final String MOUSE_POINTER = "\uf245";
-    public static final String I_CURSOR = "\uf246";
-    public static final String OBJECT_GROUP = "\uf247";
-    public static final String OBJECT_UNGROUP = "\uf248";
-    public static final String STICKY_NOTE = "\uf249";
-    public static final String STICKY_NOTE_O = "\uf24a";
-    public static final String CC_JCB = "\uf24b";
-    public static final String CC_DINERS_CLUB = "\uf24c";
-    public static final String CLONE = "\uf24d";
-    public static final String BALANCE_SCALE = "\uf24e";
-    public static final String HOURGLASS_O = "\uf250";
-    public static final String HOURGLASS_1 = "\uf251";
-    public static final String HOURGLASS_START = "\uf251";
-    public static final String HOURGLASS_2 = "\uf252";
-    public static final String HOURGLASS_HALF = "\uf252";
-    public static final String HOURGLASS_3 = "\uf253";
-    public static final String HOURGLASS_END = "\uf253";
-    public static final String HOURGLASS = "\uf254";
-    public static final String HAND_GRAB_O = "\uf255";
-    public static final String HAND_ROCK_O = "\uf255";
-    public static final String HAND_STOP_O = "\uf256";
-    public static final String HAND_PAPER_O = "\uf256";
-    public static final String HAND_SCISSORS_O = "\uf257";
-    public static final String HAND_LIZARD_O = "\uf258";
-    public static final String HAND_SPOCK_O = "\uf259";
-    public static final String HAND_POINTER_O = "\uf25a";
-    public static final String HAND_PEACE_O = "\uf25b";
-    public static final String TRADEMARK = "\uf25c";
-    public static final String REGISTERED = "\uf25d";
-    public static final String CREATIVE_COMMONS = "\uf25e";
-    public static final String GG = "\uf260";
-    public static final String GG_CIRCLE = "\uf261";
-    public static final String TRIPADVISOR = "\uf262";
-    public static final String ODNOKLASSNIKI = "\uf263";
-    public static final String ODNOKLASSNIKI_SQUARE = "\uf264";
-    public static final String GET_POCKET = "\uf265";
-    public static final String WIKIPEDIA_W = "\uf266";
-    public static final String SAFARI = "\uf267";
-    public static final String CHROME = "\uf268";
-    public static final String FIREFOX = "\uf269";
-    public static final String OPERA = "\uf26a";
-    public static final String INTERNET_EXPLORER = "\uf26b";
-    public static final String TV = "\uf26c";
-    public static final String TELEVISION = "\uf26c";
-    public static final String CONTAO = "\uf26d";
-    public static final String FIVEHUNDRED_PX  = "\uf26e";
-    public static final String AMAZON = "\uf270";
-    public static final String CALENDAR_PLUS_O = "\uf271";
-    public static final String CALENDAR_MINUS_O = "\uf272";
-    public static final String CALENDAR_TIMES_O = "\uf273";
-    public static final String CALENDAR_CHECK_O = "\uf274";
-    public static final String INDUSTRY = "\uf275";
-    public static final String MAP_PIN = "\uf276";
-    public static final String MAP_SIGNS = "\uf277";
-    public static final String MAP_O = "\uf278";
-    public static final String MAP = "\uf279";
-    public static final String COMMENTING = "\uf27a";
-    public static final String COMMENTING_O = "\uf27b";
-    public static final String HOUZZ = "\uf27c";
-    public static final String VIMEO = "\uf27d";
-    public static final String BLACK_TIE = "\uf27e";
-    public static final String FONTICONS = "\uf280";
-    public static final String REDDIT_ALIEN = "\uf281";
-    public static final String EDGE = "\uf282";
-    public static final String CREDIT_CARD_ALT = "\uf283";
-    public static final String CODIEPIE = "\uf284";
-    public static final String MODX = "\uf285";
-    public static final String FORT_AWESOME = "\uf286";
-    public static final String USB = "\uf287";
-    public static final String PRODUCT_HUNT = "\uf288";
-    public static final String MIXCLOUD = "\uf289";
-    public static final String SCRIBD = "\uf28a";
-    public static final String PAUSE_CIRCLE = "\uf28b";
-    public static final String PAUSE_CIRCLE_O = "\uf28c";
-    public static final String STOP_CIRCLE = "\uf28d";
-    public static final String STOP_CIRCLE_O = "\uf28e";
-    public static final String SHOPPING_BAG = "\uf290";
-    public static final String SHOPPING_BASKET = "\uf291";
-    public static final String HASHTAG = "\uf292";
-    public static final String BLUETOOTH = "\uf293";
-    public static final String BLUETOOTH_B = "\uf294";
-    public static final String PERCENT = "\uf295";
-    public static final String GITLAB = "\uf296";
-    public static final String WPBEGINNER = "\uf297";
-    public static final String WPFORMS = "\uf298";
-    public static final String ENVIRA = "\uf299";
-    public static final String UNIVERSAL_ACCESS = "\uf29a";
-    public static final String WHEELCHAIR_ALT = "\uf29b";
-    public static final String QUESTION_CIRCLE_O = "\uf29c";
-    public static final String BLIND = "\uf29d";
-    public static final String AUDIO_DESCRIPTION = "\uf29e";
-    public static final String VOLUME_CONTROL_PHONE = "\uf2a0";
-    public static final String BRAILLE = "\uf2a1";
-    public static final String ASSISTIVE_LISTENING_SYSTEMS = "\uf2a2";
-    public static final String ASL_INTERPRETING = "\uf2a3";
-    public static final String AMERICAN_SIGN_LANGUAGE_INTERPRETING = "\uf2a3";
-    public static final String DEAFNESS = "\uf2a4";
-    public static final String HARD_OF_HEARING = "\uf2a4";
-    public static final String DEAF = "\uf2a4";
-    public static final String GLIDE = "\uf2a5";
-    public static final String GLIDE_G = "\uf2a6";
-    public static final String SIGNING = "\uf2a7";
-    public static final String SIGN_LANGUAGE = "\uf2a7";
-    public static final String LOW_VISION = "\uf2a8";
-    public static final String VIADEO = "\uf2a9";
-    public static final String VIADEO_SQUARE = "\uf2aa";
-    public static final String SNAPCHAT = "\uf2ab";
-    public static final String SNAPCHAT_GHOST = "\uf2ac";
-    public static final String SNAPCHAT_SQUARE = "\uf2ad";
-    public static final String PIED_PIPER = "\uf2ae";
-    public static final String FIRST_ORDER = "\uf2b0";
-    public static final String YOAST = "\uf2b1";
-    public static final String THEMEISLE = "\uf2b2";
-    public static final String GOOGLE_PLUS_CIRCLE = "\uf2b3";
-    public static final String GOOGLE_PLUS_OFFICIAL = "\uf2b3";
-    public static final String FA = "\uf2b4";
-    public static final String FONT_AWESOME = "\uf2b4";
-    public static final String HANDSHAKE_O = "\uf2b5";
-    public static final String ENVELOPE_OPEN = "\uf2b6";
-    public static final String ENVELOPE_OPEN_O = "\uf2b7";
-    public static final String LINODE = "\uf2b8";
-    public static final String ADDRESS_BOOK = "\uf2b9";
-    public static final String ADDRESS_BOOK_O = "\uf2ba";
-    public static final String VCARD = "\uf2bb";
-    public static final String ADDRESS_CARD = "\uf2bb";
-    public static final String VCARD_O = "\uf2bc";
-    public static final String ADDRESS_CARD_O = "\uf2bc";
-    public static final String USER_CIRCLE = "\uf2bd";
-    public static final String USER_CIRCLE_O = "\uf2be";
-    public static final String USER_O = "\uf2c0";
-    public static final String ID_BADGE = "\uf2c1";
-    public static final String DRIVERS_LICENSE = "\uf2c2";
-    public static final String ID_CARD = "\uf2c2";
-    public static final String DRIVERS_LICENSE_O = "\uf2c3";
-    public static final String ID_CARD_O = "\uf2c3";
-    public static final String QUORA = "\uf2c4";
-    public static final String FREE_CODE_CAMP = "\uf2c5";
-    public static final String TELEGRAM = "\uf2c6";
-    public static final String THERMOMETER_4 = "\uf2c7";
-    public static final String THERMOMETER = "\uf2c7";
-    public static final String THERMOMETER_FULL = "\uf2c7";
-    public static final String THERMOMETER_3 = "\uf2c8";
-    public static final String THERMOMETER_THREE_QUARTERS = "\uf2c8";
-    public static final String THERMOMETER_2 = "\uf2c9";
-    public static final String THERMOMETER_HALF = "\uf2c9";
-    public static final String THERMOMETER_1 = "\uf2ca";
-    public static final String THERMOMETER_QUARTER = "\uf2ca";
-    public static final String THERMOMETER_0 = "\uf2cb";
-    public static final String THERMOMETER_EMPTY = "\uf2cb";
-    public static final String SHOWER = "\uf2cc";
-    public static final String BATHTUB = "\uf2cd";
-    public static final String S15 = "\uf2cd";
-    public static final String BATH = "\uf2cd";
-    public static final String PODCAST = "\uf2ce";
-    public static final String WINDOW_MAXIMIZE = "\uf2d0";
-    public static final String WINDOW_MINIMIZE = "\uf2d1";
-    public static final String WINDOW_RESTORE = "\uf2d2";
-    public static final String TIMES_RECTANGLE = "\uf2d3";
-    public static final String WINDOW_CLOSE = "\uf2d3";
-    public static final String TIMES_RECTANGLE_O = "\uf2d4";
-    public static final String WINDOW_CLOSE_O = "\uf2d4";
-    public static final String BANDCAMP = "\uf2d5";
-    public static final String GRAV = "\uf2d6";
-    public static final String ETSY = "\uf2d7";
-    public static final String IMDB = "\uf2d8";
-    public static final String RAVELRY = "\uf2d9";
-    public static final String EERCAST = "\uf2da";
-    public static final String MICROCHIP = "\uf2db";
-    public static final String SNOWFLAKE_O = "\uf2dc";
-    public static final String SUPERPOWERS = "\uf2dd";
-    public static final String WPEXPLORER = "\uf2de";
-    public static final String MEETUP = "\uf2e0";
+    public static String getText(FontAwesome.Glyph glyph){
+        return glyph.getString();
+    }
+
+    public enum Glyph {
+
+        GLASS("\uf000"),
+        MUSIC("\uf001"),
+        SEARCH("\uf002"),
+        ENVELOPE_O("\uf003"),
+        HEART("\uf004"),
+        STAR("\uf005"),
+        STAR_O("\uf006"),
+        USER("\uf007"),
+        FILM("\uf008"),
+        TH_LARGE("\uf009"),
+        TH("\uf00a"),
+        TH_LIST("\uf00b"),
+        CHECK("\uf00c"),
+        REMOVE("\uf00d"),
+        CLOSE("\uf00d"),
+        TIMES("\uf00d"),
+        SEARCH_PLUS("\uf00e"),
+        SEARCH_MINUS("\uf010"),
+        POWER_OFF("\uf011"),
+        SIGNAL("\uf012"),
+        GEAR("\uf013"),
+        COG("\uf013"),
+        TRASH_O("\uf014"),
+        HOME("\uf015"),
+        FILE_O("\uf016"),
+        CLOCK_O("\uf017"),
+        ROAD("\uf018"),
+        DOWNLOAD("\uf019"),
+        ARROW_CIRCLE_O_DOWN("\uf01a"),
+        ARROW_CIRCLE_O_UP("\uf01b"),
+        INBOX("\uf01c"),
+        PLAY_CIRCLE_O("\uf01d"),
+        ROTATE_RIGHT("\uf01e"),
+        REPEAT("\uf01e"),
+        REFRESH("\uf021"),
+        LIST_ALT("\uf022"),
+        LOCK("\uf023"),
+        FLAG("\uf024"),
+        HEADPHONES("\uf025"),
+        VOLUME_OFF("\uf026"),
+        VOLUME_DOWN("\uf027"),
+        VOLUME_UP("\uf028"),
+        QRCODE("\uf029"),
+        BARCODE("\uf02a"),
+        TAG("\uf02b"),
+        TAGS("\uf02c"),
+        BOOK("\uf02d"),
+        BOOKMARK("\uf02e"),
+        PRINT("\uf02f"),
+        CAMERA("\uf030"),
+        FONT("\uf031"),
+        BOLD("\uf032"),
+        ITALIC("\uf033"),
+        TEXT_HEIGHT("\uf034"),
+        TEXT_WIDTH("\uf035"),
+        ALIGN_LEFT("\uf036"),
+        ALIGN_CENTER("\uf037"),
+        ALIGN_RIGHT("\uf038"),
+        ALIGN_JUSTIFY("\uf039"),
+        LIST("\uf03a"),
+        DEDENT("\uf03b"),
+        OUTDENT("\uf03b"),
+        INDENT("\uf03c"),
+        VIDEO_CAMERA("\uf03d"),
+        PHOTO("\uf03e"),
+        IMAGE("\uf03e"),
+        PICTURE_O("\uf03e"),
+        PENCIL("\uf040"),
+        MAP_MARKER("\uf041"),
+        ADJUST("\uf042"),
+        TINT("\uf043"),
+        EDIT("\uf044"),
+        PENCIL_SQUARE_O("\uf044"),
+        SHARE_SQUARE_O("\uf045"),
+        CHECK_SQUARE_O("\uf046"),
+        ARROWS("\uf047"),
+        STEP_BACKWARD("\uf048"),
+        FAST_BACKWARD("\uf049"),
+        BACKWARD("\uf04a"),
+        PLAY("\uf04b"),
+        PAUSE("\uf04c"),
+        STOP("\uf04d"),
+        FORWARD("\uf04e"),
+        FAST_FORWARD("\uf050"),
+        STEP_FORWARD("\uf051"),
+        EJECT("\uf052"),
+        CHEVRON_LEFT("\uf053"),
+        CHEVRON_RIGHT("\uf054"),
+        PLUS_CIRCLE("\uf055"),
+        MINUS_CIRCLE("\uf056"),
+        TIMES_CIRCLE("\uf057"),
+        CHECK_CIRCLE("\uf058"),
+        QUESTION_CIRCLE("\uf059"),
+        INFO_CIRCLE("\uf05a"),
+        CROSSHAIRS("\uf05b"),
+        TIMES_CIRCLE_O("\uf05c"),
+        CHECK_CIRCLE_O("\uf05d"),
+        BAN("\uf05e"),
+        ARROW_LEFT("\uf060"),
+        ARROW_RIGHT("\uf061"),
+        ARROW_UP("\uf062"),
+        ARROW_DOWN("\uf063"),
+        MAIL_FORWARD("\uf064"),
+        SHARE("\uf064"),
+        EXPAND("\uf065"),
+        COMPRESS("\uf066"),
+        PLUS("\uf067"),
+        MINUS("\uf068"),
+        ASTERISK("\uf069"),
+        EXCLAMATION_CIRCLE("\uf06a"),
+        GIFT("\uf06b"),
+        LEAF("\uf06c"),
+        FIRE("\uf06d"),
+        EYE("\uf06e"),
+        EYE_SLASH("\uf070"),
+        WARNING("\uf071"),
+        EXCLAMATION_TRIANGLE("\uf071"),
+        PLANE("\uf072"),
+        CALENDAR("\uf073"),
+        RANDOM("\uf074"),
+        COMMENT("\uf075"),
+        MAGNET("\uf076"),
+        CHEVRON_UP("\uf077"),
+        CHEVRON_DOWN("\uf078"),
+        RETWEET("\uf079"),
+        SHOPPING_CART("\uf07a"),
+        FOLDER("\uf07b"),
+        FOLDER_OPEN("\uf07c"),
+        ARROWS_V("\uf07d"),
+        ARROWS_H("\uf07e"),
+        BAR_CHART_O("\uf080"),
+        BAR_CHART("\uf080"),
+        TWITTER_SQUARE("\uf081"),
+        FACEBOOK_SQUARE("\uf082"),
+        CAMERA_RETRO("\uf083"),
+        KEY("\uf084"),
+        GEARS("\uf085"),
+        COGS("\uf085"),
+        COMMENTS("\uf086"),
+        THUMBS_O_UP("\uf087"),
+        THUMBS_O_DOWN("\uf088"),
+        STAR_HALF("\uf089"),
+        HEART_O("\uf08a"),
+        SIGN_OUT("\uf08b"),
+        LINKEDIN_SQUARE("\uf08c"),
+        THUMB_TACK("\uf08d"),
+        EXTERNAL_LINK("\uf08e"),
+        SIGN_IN("\uf090"),
+        TROPHY("\uf091"),
+        GITHUB_SQUARE("\uf092"),
+        UPLOAD("\uf093"),
+        LEMON_O("\uf094"),
+        PHONE("\uf095"),
+        SQUARE_O("\uf096"),
+        BOOKMARK_O("\uf097"),
+        PHONE_SQUARE("\uf098"),
+        TWITTER("\uf099"),
+        FACEBOOK_F("\uf09a"),
+        FACEBOOK("\uf09a"),
+        GITHUB("\uf09b"),
+        UNLOCK("\uf09c"),
+        CREDIT_CARD("\uf09d"),
+        FEED("\uf09e"),
+        RSS("\uf09e"),
+        HDD_O("\uf0a0"),
+        BULLHORN("\uf0a1"),
+        BELL("\uf0f3"),
+        CERTIFICATE("\uf0a3"),
+        HAND_O_RIGHT("\uf0a4"),
+        HAND_O_LEFT("\uf0a5"),
+        HAND_O_UP("\uf0a6"),
+        HAND_O_DOWN("\uf0a7"),
+        ARROW_CIRCLE_LEFT("\uf0a8"),
+        ARROW_CIRCLE_RIGHT("\uf0a9"),
+        ARROW_CIRCLE_UP("\uf0aa"),
+        ARROW_CIRCLE_DOWN("\uf0ab"),
+        GLOBE("\uf0ac"),
+        WRENCH("\uf0ad"),
+        TASKS("\uf0ae"),
+        FILTER("\uf0b0"),
+        BRIEFCASE("\uf0b1"),
+        ARROWS_ALT("\uf0b2"),
+        GROUP("\uf0c0"),
+        USERS("\uf0c0"),
+        CHAIN("\uf0c1"),
+        LINK("\uf0c1"),
+        CLOUD("\uf0c2"),
+        FLASK("\uf0c3"),
+        CUT("\uf0c4"),
+        SCISSORS("\uf0c4"),
+        COPY("\uf0c5"),
+        FILES_O("\uf0c5"),
+        PAPERCLIP("\uf0c6"),
+        SAVE("\uf0c7"),
+        FLOPPY_O("\uf0c7"),
+        SQUARE("\uf0c8"),
+        NAVICON("\uf0c9"),
+        REORDER("\uf0c9"),
+        BARS("\uf0c9"),
+        LIST_UL("\uf0ca"),
+        LIST_OL("\uf0cb"),
+        STRIKETHROUGH("\uf0cc"),
+        UNDERLINE("\uf0cd"),
+        TABLE("\uf0ce"),
+        MAGIC("\uf0d0"),
+        TRUCK("\uf0d1"),
+        PINTEREST("\uf0d2"),
+        PINTEREST_SQUARE("\uf0d3"),
+        GOOGLE_PLUS_SQUARE("\uf0d4"),
+        GOOGLE_PLUS("\uf0d5"),
+        MONEY("\uf0d6"),
+        CARET_DOWN("\uf0d7"),
+        CARET_UP("\uf0d8"),
+        CARET_LEFT("\uf0d9"),
+        CARET_RIGHT("\uf0da"),
+        COLUMNS("\uf0db"),
+        UNSORTED("\uf0dc"),
+        SORT("\uf0dc"),
+        SORT_DOWN("\uf0dd"),
+        SORT_DESC("\uf0dd"),
+        SORT_UP("\uf0de"),
+        SORT_ASC("\uf0de"),
+        ENVELOPE("\uf0e0"),
+        LINKEDIN("\uf0e1"),
+        ROTATE_LEFT("\uf0e2"),
+        UNDO("\uf0e2"),
+        LEGAL("\uf0e3"),
+        GAVEL("\uf0e3"),
+        DASHBOARD("\uf0e4"),
+        TACHOMETER("\uf0e4"),
+        COMMENT_O("\uf0e5"),
+        COMMENTS_O("\uf0e6"),
+        FLASH("\uf0e7"),
+        BOLT("\uf0e7"),
+        SITEMAP("\uf0e8"),
+        UMBRELLA("\uf0e9"),
+        PASTE("\uf0ea"),
+        CLIPBOARD("\uf0ea"),
+        LIGHTBULB_O("\uf0eb"),
+        EXCHANGE("\uf0ec"),
+        CLOUD_DOWNLOAD("\uf0ed"),
+        CLOUD_UPLOAD("\uf0ee"),
+        USER_MD("\uf0f0"),
+        STETHOSCOPE("\uf0f1"),
+        SUITCASE("\uf0f2"),
+        BELL_O("\uf0a2"),
+        COFFEE("\uf0f4"),
+        CUTLERY("\uf0f5"),
+        FILE_TEXT_O("\uf0f6"),
+        BUILDING_O("\uf0f7"),
+        HOSPITAL_O("\uf0f8"),
+        AMBULANCE("\uf0f9"),
+        MEDKIT("\uf0fa"),
+        FIGHTER_JET("\uf0fb"),
+        BEER("\uf0fc"),
+        H_SQUARE("\uf0fd"),
+        PLUS_SQUARE("\uf0fe"),
+        ANGLE_DOUBLE_LEFT("\uf100"),
+        ANGLE_DOUBLE_RIGHT("\uf101"),
+        ANGLE_DOUBLE_UP("\uf102"),
+        ANGLE_DOUBLE_DOWN("\uf103"),
+        ANGLE_LEFT("\uf104"),
+        ANGLE_RIGHT("\uf105"),
+        ANGLE_UP("\uf106"),
+        ANGLE_DOWN("\uf107"),
+        DESKTOP("\uf108"),
+        LAPTOP("\uf109"),
+        TABLET("\uf10a"),
+        MOBILE_PHONE("\uf10b"),
+        MOBILE("\uf10b"),
+        CIRCLE_O("\uf10c"),
+        QUOTE_LEFT("\uf10d"),
+        QUOTE_RIGHT("\uf10e"),
+        SPINNER("\uf110"),
+        CIRCLE("\uf111"),
+        MAIL_REPLY("\uf112"),
+        REPLY("\uf112"),
+        GITHUB_ALT("\uf113"),
+        FOLDER_O("\uf114"),
+        FOLDER_OPEN_O("\uf115"),
+        SMILE_O("\uf118"),
+        FROWN_O("\uf119"),
+        MEH_O("\uf11a"),
+        GAMEPAD("\uf11b"),
+        KEYBOARD_O("\uf11c"),
+        FLAG_O("\uf11d"),
+        FLAG_CHECKERED("\uf11e"),
+        TERMINAL("\uf120"),
+        CODE("\uf121"),
+        MAIL_REPLY_ALL("\uf122"),
+        REPLY_ALL("\uf122"),
+        STAR_HALF_EMPTY("\uf123"),
+        STAR_HALF_FULL("\uf123"),
+        STAR_HALF_O("\uf123"),
+        LOCATION_ARROW("\uf124"),
+        CROP("\uf125"),
+        CODE_FORK("\uf126"),
+        UNLINK("\uf127"),
+        CHAIN_BROKEN("\uf127"),
+        QUESTION("\uf128"),
+        INFO("\uf129"),
+        EXCLAMATION("\uf12a"),
+        SUPERSCRIPT("\uf12b"),
+        SUBSCRIPT("\uf12c"),
+        ERASER("\uf12d"),
+        PUZZLE_PIECE("\uf12e"),
+        MICROPHONE("\uf130"),
+        MICROPHONE_SLASH("\uf131"),
+        SHIELD("\uf132"),
+        CALENDAR_O("\uf133"),
+        FIRE_EXTINGUISHER("\uf134"),
+        ROCKET("\uf135"),
+        MAXCDN("\uf136"),
+        CHEVRON_CIRCLE_LEFT("\uf137"),
+        CHEVRON_CIRCLE_RIGHT("\uf138"),
+        CHEVRON_CIRCLE_UP("\uf139"),
+        CHEVRON_CIRCLE_DOWN("\uf13a"),
+        HTML5("\uf13b"),
+        CSS3("\uf13c"),
+        ANCHOR("\uf13d"),
+        UNLOCK_ALT("\uf13e"),
+        BULLSEYE("\uf140"),
+        ELLIPSIS_H("\uf141"),
+        ELLIPSIS_V("\uf142"),
+        RSS_SQUARE("\uf143"),
+        PLAY_CIRCLE("\uf144"),
+        TICKET("\uf145"),
+        MINUS_SQUARE("\uf146"),
+        MINUS_SQUARE_O("\uf147"),
+        LEVEL_UP("\uf148"),
+        LEVEL_DOWN("\uf149"),
+        CHECK_SQUARE("\uf14a"),
+        PENCIL_SQUARE("\uf14b"),
+        EXTERNAL_LINK_SQUARE("\uf14c"),
+        SHARE_SQUARE("\uf14d"),
+        COMPASS("\uf14e"),
+        TOGGLE_DOWN("\uf150"),
+        CARET_SQUARE_O_DOWN("\uf150"),
+        TOGGLE_UP("\uf151"),
+        CARET_SQUARE_O_UP("\uf151"),
+        TOGGLE_RIGHT("\uf152"),
+        CARET_SQUARE_O_RIGHT("\uf152"),
+        EURO("\uf153"),
+        EUR("\uf153"),
+        GBP("\uf154"),
+        DOLLAR("\uf155"),
+        USD("\uf155"),
+        RUPEE("\uf156"),
+        INR("\uf156"),
+        CNY("\uf157"),
+        RMB("\uf157"),
+        YEN("\uf157"),
+        JPY("\uf157"),
+        RUBLE("\uf158"),
+        ROUBLE("\uf158"),
+        RUB("\uf158"),
+        WON("\uf159"),
+        KRW("\uf159"),
+        BITCOIN("\uf15a"),
+        BTC("\uf15a"),
+        FILE("\uf15b"),
+        FILE_TEXT("\uf15c"),
+        SORT_ALPHA_ASC("\uf15d"),
+        SORT_ALPHA_DESC("\uf15e"),
+        SORT_AMOUNT_ASC("\uf160"),
+        SORT_AMOUNT_DESC("\uf161"),
+        SORT_NUMERIC_ASC("\uf162"),
+        SORT_NUMERIC_DESC("\uf163"),
+        THUMBS_UP("\uf164"),
+        THUMBS_DOWN("\uf165"),
+        YOUTUBE_SQUARE("\uf166"),
+        YOUTUBE("\uf167"),
+        XING("\uf168"),
+        XING_SQUARE("\uf169"),
+        YOUTUBE_PLAY("\uf16a"),
+        DROPBOX("\uf16b"),
+        STACK_OVERFLOW("\uf16c"),
+        INSTAGRAM("\uf16d"),
+        FLICKR("\uf16e"),
+        ADN("\uf170"),
+        BITBUCKET("\uf171"),
+        BITBUCKET_SQUARE("\uf172"),
+        TUMBLR("\uf173"),
+        TUMBLR_SQUARE("\uf174"),
+        LONG_ARROW_DOWN("\uf175"),
+        LONG_ARROW_UP("\uf176"),
+        LONG_ARROW_LEFT("\uf177"),
+        LONG_ARROW_RIGHT("\uf178"),
+        APPLE("\uf179"),
+        WINDOWS("\uf17a"),
+        ANDROID("\uf17b"),
+        LINUX("\uf17c"),
+        DRIBBBLE("\uf17d"),
+        SKYPE("\uf17e"),
+        FOURSQUARE("\uf180"),
+        TRELLO("\uf181"),
+        FEMALE("\uf182"),
+        MALE("\uf183"),
+        GITTIP("\uf184"),
+        GRATIPAY("\uf184"),
+        SUN_O("\uf185"),
+        MOON_O("\uf186"),
+        ARCHIVE("\uf187"),
+        BUG("\uf188"),
+        VK("\uf189"),
+        WEIBO("\uf18a"),
+        RENREN("\uf18b"),
+        PAGELINES("\uf18c"),
+        STACK_EXCHANGE("\uf18d"),
+        ARROW_CIRCLE_O_RIGHT("\uf18e"),
+        ARROW_CIRCLE_O_LEFT("\uf190"),
+        TOGGLE_LEFT("\uf191"),
+        CARET_SQUARE_O_LEFT("\uf191"),
+        DOT_CIRCLE_O("\uf192"),
+        WHEELCHAIR("\uf193"),
+        VIMEO_SQUARE("\uf194"),
+        TURKISH_LIRA("\uf195"),
+        TRY("\uf195"),
+        PLUS_SQUARE_O("\uf196"),
+        SPACE_SHUTTLE("\uf197"),
+        SLACK("\uf198"),
+        ENVELOPE_SQUARE("\uf199"),
+        WORDPRESS("\uf19a"),
+        OPENID("\uf19b"),
+        INSTITUTION("\uf19c"),
+        BANK("\uf19c"),
+        UNIVERSITY("\uf19c"),
+        MORTAR_BOARD("\uf19d"),
+        GRADUATION_CAP("\uf19d"),
+        YAHOO("\uf19e"),
+        GOOGLE("\uf1a0"),
+        REDDIT("\uf1a1"),
+        REDDIT_SQUARE("\uf1a2"),
+        STUMBLEUPON_CIRCLE("\uf1a3"),
+        STUMBLEUPON("\uf1a4"),
+        DELICIOUS("\uf1a5"),
+        DIGG("\uf1a6"),
+        PIED_PIPER_PP("\uf1a7"),
+        PIED_PIPER_ALT("\uf1a8"),
+        DRUPAL("\uf1a9"),
+        JOOMLA("\uf1aa"),
+        LANGUAGE("\uf1ab"),
+        FAX("\uf1ac"),
+        BUILDING("\uf1ad"),
+        CHILD("\uf1ae"),
+        PAW("\uf1b0"),
+        SPOON("\uf1b1"),
+        CUBE("\uf1b2"),
+        CUBES("\uf1b3"),
+        BEHANCE("\uf1b4"),
+        BEHANCE_SQUARE("\uf1b5"),
+        STEAM("\uf1b6"),
+        STEAM_SQUARE("\uf1b7"),
+        RECYCLE("\uf1b8"),
+        AUTOMOBILE("\uf1b9"),
+        CAR("\uf1b9"),
+        CAB("\uf1ba"),
+        TAXI("\uf1ba"),
+        TREE("\uf1bb"),
+        SPOTIFY("\uf1bc"),
+        DEVIANTART("\uf1bd"),
+        SOUNDCLOUD("\uf1be"),
+        DATABASE("\uf1c0"),
+        FILE_PDF_O("\uf1c1"),
+        FILE_WORD_O("\uf1c2"),
+        FILE_EXCEL_O("\uf1c3"),
+        FILE_POWERPOINT_O("\uf1c4"),
+        FILE_PHOTO_O("\uf1c5"),
+        FILE_PICTURE_O("\uf1c5"),
+        FILE_IMAGE_O("\uf1c5"),
+        FILE_ZIP_O("\uf1c6"),
+        FILE_ARCHIVE_O("\uf1c6"),
+        FILE_SOUND_O("\uf1c7"),
+        FILE_AUDIO_O("\uf1c7"),
+        FILE_MOVIE_O("\uf1c8"),
+        FILE_VIDEO_O("\uf1c8"),
+        FILE_CODE_O("\uf1c9"),
+        VINE("\uf1ca"),
+        CODEPEN("\uf1cb"),
+        JSFIDDLE("\uf1cc"),
+        LIFE_BOUY("\uf1cd"),
+        LIFE_BUOY("\uf1cd"),
+        LIFE_SAVER("\uf1cd"),
+        SUPPORT("\uf1cd"),
+        LIFE_RING("\uf1cd"),
+        CIRCLE_O_NOTCH("\uf1ce"),
+        RA("\uf1d0"),
+        RESISTANCE("\uf1d0"),
+        REBEL("\uf1d0"),
+        GE("\uf1d1"),
+        EMPIRE("\uf1d1"),
+        GIT_SQUARE("\uf1d2"),
+        GIT("\uf1d3"),
+        Y_COMBINATOR_SQUARE("\uf1d4"),
+        YC_SQUARE("\uf1d4"),
+        HACKER_NEWS("\uf1d4"),
+        TENCENT_WEIBO("\uf1d5"),
+        QQ("\uf1d6"),
+        WECHAT("\uf1d7"),
+        WEIXIN("\uf1d7"),
+        SEND("\uf1d8"),
+        PAPER_PLANE("\uf1d8"),
+        SEND_O("\uf1d9"),
+        PAPER_PLANE_O("\uf1d9"),
+        HISTORY("\uf1da"),
+        CIRCLE_THIN("\uf1db"),
+        HEADER("\uf1dc"),
+        PARAGRAPH("\uf1dd"),
+        SLIDERS("\uf1de"),
+        SHARE_ALT("\uf1e0"),
+        SHARE_ALT_SQUARE("\uf1e1"),
+        BOMB("\uf1e2"),
+        SOCCER_BALL_O("\uf1e3"),
+        FUTBOL_O("\uf1e3"),
+        TTY("\uf1e4"),
+        BINOCULARS("\uf1e5"),
+        PLUG("\uf1e6"),
+        SLIDESHARE("\uf1e7"),
+        TWITCH("\uf1e8"),
+        YELP("\uf1e9"),
+        NEWSPAPER_O("\uf1ea"),
+        WIFI("\uf1eb"),
+        CALCULATOR("\uf1ec"),
+        PAYPAL("\uf1ed"),
+        GOOGLE_WALLET("\uf1ee"),
+        CC_VISA("\uf1f0"),
+        CC_MASTERCARD("\uf1f1"),
+        CC_DISCOVER("\uf1f2"),
+        CC_AMEX("\uf1f3"),
+        CC_PAYPAL("\uf1f4"),
+        CC_STRIPE("\uf1f5"),
+        BELL_SLASH("\uf1f6"),
+        BELL_SLASH_O("\uf1f7"),
+        TRASH("\uf1f8"),
+        COPYRIGHT("\uf1f9"),
+        AT("\uf1fa"),
+        EYEDROPPER("\uf1fb"),
+        PAINT_BRUSH("\uf1fc"),
+        BIRTHDAY_CAKE("\uf1fd"),
+        AREA_CHART("\uf1fe"),
+        PIE_CHART("\uf200"),
+        LINE_CHART("\uf201"),
+        LASTFM("\uf202"),
+        LASTFM_SQUARE("\uf203"),
+        TOGGLE_OFF("\uf204"),
+        TOGGLE_ON("\uf205"),
+        BICYCLE("\uf206"),
+        BUS("\uf207"),
+        IOXHOST("\uf208"),
+        ANGELLIST("\uf209"),
+        CC("\uf20a"),
+        SHEKEL("\uf20b"),
+        SHEQEL("\uf20b"),
+        ILS("\uf20b"),
+        MEANPATH("\uf20c"),
+        BUYSELLADS("\uf20d"),
+        CONNECTDEVELOP("\uf20e"),
+        DASHCUBE("\uf210"),
+        FORUMBEE("\uf211"),
+        LEANPUB("\uf212"),
+        SELLSY("\uf213"),
+        SHIRTSINBULK("\uf214"),
+        SIMPLYBUILT("\uf215"),
+        SKYATLAS("\uf216"),
+        CART_PLUS("\uf217"),
+        CART_ARROW_DOWN("\uf218"),
+        DIAMOND("\uf219"),
+        SHIP("\uf21a"),
+        USER_SECRET("\uf21b"),
+        MOTORCYCLE("\uf21c"),
+        STREET_VIEW("\uf21d"),
+        HEARTBEAT("\uf21e"),
+        VENUS("\uf221"),
+        MARS("\uf222"),
+        MERCURY("\uf223"),
+        INTERSEX("\uf224"),
+        TRANSGENDER("\uf224"),
+        TRANSGENDER_ALT("\uf225"),
+        VENUS_DOUBLE("\uf226"),
+        MARS_DOUBLE("\uf227"),
+        VENUS_MARS("\uf228"),
+        MARS_STROKE("\uf229"),
+        MARS_STROKE_V("\uf22a"),
+        MARS_STROKE_H("\uf22b"),
+        NEUTER("\uf22c"),
+        GENDERLESS("\uf22d"),
+        FACEBOOK_OFFICIAL("\uf230"),
+        PINTEREST_P("\uf231"),
+        WHATSAPP("\uf232"),
+        SERVER("\uf233"),
+        USER_PLUS("\uf234"),
+        USER_TIMES("\uf235"),
+        HOTEL("\uf236"),
+        BED("\uf236"),
+        VIACOIN("\uf237"),
+        TRAIN("\uf238"),
+        SUBWAY("\uf239"),
+        MEDIUM("\uf23a"),
+        YC("\uf23b"),
+        Y_COMBINATOR("\uf23b"),
+        OPTIN_MONSTER("\uf23c"),
+        OPENCART("\uf23d"),
+        EXPEDITEDSSL("\uf23e"),
+        BATTERY_4("\uf240"),
+        BATTERY("\uf240"),
+        BATTERY_FULL("\uf240"),
+        BATTERY_3("\uf241"),
+        BATTERY_THREE_QUARTERS("\uf241"),
+        BATTERY_2("\uf242"),
+        BATTERY_HALF("\uf242"),
+        BATTERY_1("\uf243"),
+        BATTERY_QUARTER("\uf243"),
+        BATTERY_0("\uf244"),
+        BATTERY_EMPTY("\uf244"),
+        MOUSE_POINTER("\uf245"),
+        I_CURSOR("\uf246"),
+        OBJECT_GROUP("\uf247"),
+        OBJECT_UNGROUP("\uf248"),
+        STICKY_NOTE("\uf249"),
+        STICKY_NOTE_O("\uf24a"),
+        CC_JCB("\uf24b"),
+        CC_DINERS_CLUB("\uf24c"),
+        CLONE("\uf24d"),
+        BALANCE_SCALE("\uf24e"),
+        HOURGLASS_O("\uf250"),
+        HOURGLASS_1("\uf251"),
+        HOURGLASS_START("\uf251"),
+        HOURGLASS_2("\uf252"),
+        HOURGLASS_HALF("\uf252"),
+        HOURGLASS_3("\uf253"),
+        HOURGLASS_END("\uf253"),
+        HOURGLASS("\uf254"),
+        HAND_GRAB_O("\uf255"),
+        HAND_ROCK_O("\uf255"),
+        HAND_STOP_O("\uf256"),
+        HAND_PAPER_O("\uf256"),
+        HAND_SCISSORS_O("\uf257"),
+        HAND_LIZARD_O("\uf258"),
+        HAND_SPOCK_O("\uf259"),
+        HAND_POINTER_O("\uf25a"),
+        HAND_PEACE_O("\uf25b"),
+        TRADEMARK("\uf25c"),
+        REGISTERED("\uf25d"),
+        CREATIVE_COMMONS("\uf25e"),
+        GG("\uf260"),
+        GG_CIRCLE("\uf261"),
+        TRIPADVISOR("\uf262"),
+        ODNOKLASSNIKI("\uf263"),
+        ODNOKLASSNIKI_SQUARE("\uf264"),
+        GET_POCKET("\uf265"),
+        WIKIPEDIA_W("\uf266"),
+        SAFARI("\uf267"),
+        CHROME("\uf268"),
+        FIREFOX("\uf269"),
+        OPERA("\uf26a"),
+        INTERNET_EXPLORER("\uf26b"),
+        TV("\uf26c"),
+        TELEVISION("\uf26c"),
+        CONTAO("\uf26d"),
+        FIVEHUNDRED_PX("\uf26e"),
+        AMAZON("\uf270"),
+        CALENDAR_PLUS_O("\uf271"),
+        CALENDAR_MINUS_O("\uf272"),
+        CALENDAR_TIMES_O("\uf273"),
+        CALENDAR_CHECK_O("\uf274"),
+        INDUSTRY("\uf275"),
+        MAP_PIN("\uf276"),
+        MAP_SIGNS("\uf277"),
+        MAP_O("\uf278"),
+        MAP("\uf279"),
+        COMMENTING("\uf27a"),
+        COMMENTING_O("\uf27b"),
+        HOUZZ("\uf27c"),
+        VIMEO("\uf27d"),
+        BLACK_TIE("\uf27e"),
+        FONTICONS("\uf280"),
+        REDDIT_ALIEN("\uf281"),
+        EDGE("\uf282"),
+        CREDIT_CARD_ALT("\uf283"),
+        CODIEPIE("\uf284"),
+        MODX("\uf285"),
+        FORT_AWESOME("\uf286"),
+        USB("\uf287"),
+        PRODUCT_HUNT("\uf288"),
+        MIXCLOUD("\uf289"),
+        SCRIBD("\uf28a"),
+        PAUSE_CIRCLE("\uf28b"),
+        PAUSE_CIRCLE_O("\uf28c"),
+        STOP_CIRCLE("\uf28d"),
+        STOP_CIRCLE_O("\uf28e"),
+        SHOPPING_BAG("\uf290"),
+        SHOPPING_BASKET("\uf291"),
+        HASHTAG("\uf292"),
+        BLUETOOTH("\uf293"),
+        BLUETOOTH_B("\uf294"),
+        PERCENT("\uf295"),
+        GITLAB("\uf296"),
+        WPBEGINNER("\uf297"),
+        WPFORMS("\uf298"),
+        ENVIRA("\uf299"),
+        UNIVERSAL_ACCESS("\uf29a"),
+        WHEELCHAIR_ALT("\uf29b"),
+        QUESTION_CIRCLE_O("\uf29c"),
+        BLIND("\uf29d"),
+        AUDIO_DESCRIPTION("\uf29e"),
+        VOLUME_CONTROL_PHONE("\uf2a0"),
+        BRAILLE("\uf2a1"),
+        ASSISTIVE_LISTENING_SYSTEMS("\uf2a2"),
+        ASL_INTERPRETING("\uf2a3"),
+        AMERICAN_SIGN_LANGUAGE_INTERPRETING("\uf2a3"),
+        DEAFNESS("\uf2a4"),
+        HARD_OF_HEARING("\uf2a4"),
+        DEAF("\uf2a4"),
+        GLIDE("\uf2a5"),
+        GLIDE_G("\uf2a6"),
+        SIGNING("\uf2a7"),
+        SIGN_LANGUAGE("\uf2a7"),
+        LOW_VISION("\uf2a8"),
+        VIADEO("\uf2a9"),
+        VIADEO_SQUARE("\uf2aa"),
+        SNAPCHAT("\uf2ab"),
+        SNAPCHAT_GHOST("\uf2ac"),
+        SNAPCHAT_SQUARE("\uf2ad"),
+        PIED_PIPER("\uf2ae"),
+        FIRST_ORDER("\uf2b0"),
+        YOAST("\uf2b1"),
+        THEMEISLE("\uf2b2"),
+        GOOGLE_PLUS_CIRCLE("\uf2b3"),
+        GOOGLE_PLUS_OFFICIAL("\uf2b3"),
+        FA("\uf2b4"),
+        FONT_AWESOME("\uf2b4"),
+        HANDSHAKE_O("\uf2b5"),
+        ENVELOPE_OPEN("\uf2b6"),
+        ENVELOPE_OPEN_O("\uf2b7"),
+        LINODE("\uf2b8"),
+        ADDRESS_BOOK("\uf2b9"),
+        ADDRESS_BOOK_O("\uf2ba"),
+        VCARD("\uf2bb"),
+        ADDRESS_CARD("\uf2bb"),
+        VCARD_O("\uf2bc"),
+        ADDRESS_CARD_O("\uf2bc"),
+        USER_CIRCLE("\uf2bd"),
+        USER_CIRCLE_O("\uf2be"),
+        USER_O("\uf2c0"),
+        ID_BADGE("\uf2c1"),
+        DRIVERS_LICENSE("\uf2c2"),
+        ID_CARD("\uf2c2"),
+        DRIVERS_LICENSE_O("\uf2c3"),
+        ID_CARD_O("\uf2c3"),
+        QUORA("\uf2c4"),
+        FREE_CODE_CAMP("\uf2c5"),
+        TELEGRAM("\uf2c6"),
+        THERMOMETER_4("\uf2c7"),
+        THERMOMETER("\uf2c7"),
+        THERMOMETER_FULL("\uf2c7"),
+        THERMOMETER_3("\uf2c8"),
+        THERMOMETER_THREE_QUARTERS("\uf2c8"),
+        THERMOMETER_2("\uf2c9"),
+        THERMOMETER_HALF("\uf2c9"),
+        THERMOMETER_1("\uf2ca"),
+        THERMOMETER_QUARTER("\uf2ca"),
+        THERMOMETER_0("\uf2cb"),
+        THERMOMETER_EMPTY("\uf2cb"),
+        SHOWER("\uf2cc"),
+        BATHTUB("\uf2cd"),
+        S15("\uf2cd"),
+        BATH("\uf2cd"),
+        PODCAST("\uf2ce"),
+        WINDOW_MAXIMIZE("\uf2d0"),
+        WINDOW_MINIMIZE("\uf2d1"),
+        WINDOW_RESTORE("\uf2d2"),
+        TIMES_RECTANGLE("\uf2d3"),
+        WINDOW_CLOSE("\uf2d3"),
+        TIMES_RECTANGLE_O("\uf2d4"),
+        WINDOW_CLOSE_O("\uf2d4"),
+        BANDCAMP("\uf2d5"),
+        GRAV("\uf2d6"),
+        ETSY("\uf2d7"),
+        IMDB("\uf2d8"),
+        RAVELRY("\uf2d9"),
+        EERCAST("\uf2da"),
+        MICROCHIP("\uf2db"),
+        SNOWFLAKE_O("\uf2dc"),
+        SUPERPOWERS("\uf2dd"),
+        WPEXPLORER("\uf2de"),
+        MEETUP("\uf2e0");
+
+        private final String string;
+
+        Glyph(String string) {
+            this.string = string;
+        }
+
+        private String getString() {
+            return string;
+        }
+
+    }
 
 }

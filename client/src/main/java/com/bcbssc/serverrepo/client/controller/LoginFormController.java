@@ -80,6 +80,12 @@ public class LoginFormController extends ChildController implements Initializabl
         userService.login(txtUsername.getText(), txtPassword.getText());
     }
     
+    @FXML
+    private void handleGuestLogin(){
+        infoBarStatusService.updateStatus(InfoBarStatus.CONNECTING);
+        userService.loginGuest();
+    }
+    
     @Handler
     private void ebLoginEvent(LoginEvent loginEvent){
         LOG.debug("LoginEvent received - {}", loginEvent);

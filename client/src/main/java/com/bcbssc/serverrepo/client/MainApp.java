@@ -85,10 +85,6 @@ public class MainApp extends Application {
         return primaryStage;
     }
     
-//    public static MBassador<ServerRepoEvent> getEventBus(){
-//        return eventBus;
-//    }
-    
     public static Injector getInjector(){
         return injector;
     }
@@ -133,7 +129,6 @@ public class MainApp extends Application {
     
     public static void hideStage() {
         if (primaryStage != null) {
-            
             clientLocation.setMaximized(primaryStage.isMaximized());
             
             if (!primaryStage.isMaximized()){

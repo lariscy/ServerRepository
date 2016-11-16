@@ -8,6 +8,7 @@ import com.bcbssc.serverrepo.client.model.User;
 public interface UserService {
     
     boolean login(String userName, String password);
+    boolean loginGuest();
     boolean logout();
     User getUser();
     

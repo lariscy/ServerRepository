@@ -40,7 +40,7 @@
  *
  ******************************************************************************/
 .root, .label {
-    -fx-font-family: 'Roboto'; /*-fx-font-family: 'FontAwesome';*/
+    -fx-font-family: 'Roboto';
 }
 .tooltip {
     -fx-font-size: 12px;
@@ -53,7 +53,7 @@
  ******************************************************************************/
 .left-menu-toggle-button {
     -fx-background-radius: 0; /* makes button square */
-    -fx-padding: 5;/* small padding */
+    -fx-padding: 5;
     -fx-font-family: 'FontAwesome';
     -fx-font-size: 18; /* glyph size */
     -fx-text-fill: #000000; /* glyph color */
@@ -93,15 +93,10 @@
 .login-form-error-message {
     -fx-text-fill: -fx-error-red;
 }
-.login-form-guest-link {
-    -fx-text-fill: blue;
-    -fx-underline: false;
-}
+.login-form-guest-link,
+.login-form-guest-link:visited,
 .login-form-guest-link:hover,
-  .login-form-guest-link:visited:hover {
-    -fx-text-fill: red;
-}
-.login-form-guest-link:visited {
-    -fx-text-fill: green;
+.login-form-guest-link:visited:hover {
+    -fx-text-fill: blue;
     -fx-underline: false;
 }

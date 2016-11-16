@@ -81,8 +81,6 @@ public class TopMenuController extends ChildController implements Initializable 
         LOG.debug("LogoutEvent received - {}", logoutEvent);
         if (logoutEvent.isSuccess()){
             LOG.debug("logout successful ");
-//            Platform.runLater(() ->
-//                this.getParentController().loadLoginView());
             Platform.runLater(getParentController()::loadLoginView);
             infoBarStatusService.updateStatus(InfoBarStatus.DISCONNECTED);
             infoBarStatusService.updateStatusRole(UserRole.NONE);

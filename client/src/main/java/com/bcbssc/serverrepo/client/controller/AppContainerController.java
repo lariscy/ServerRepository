@@ -27,7 +27,6 @@ public class AppContainerController implements Initializable {
 
     @FXML
     private BorderPane borderPane;
-    
     @FXML
     private TopMenuController topMenuController;
     @FXML
@@ -106,8 +105,9 @@ public class AppContainerController implements Initializable {
     }
     
     private ChildController getControllerFromLoader(FXMLLoader fxmlLoader){
-        ((ChildController) fxmlLoader.getController()).setParentController(this);
-        return (ChildController) fxmlLoader.getController();
+        ChildController childController = (ChildController) fxmlLoader.getController();
+        childController.setParentController(this);
+        return childController;
     }
     
     private Parent getNodeFromLoader(FXMLLoader fxmlLoader){

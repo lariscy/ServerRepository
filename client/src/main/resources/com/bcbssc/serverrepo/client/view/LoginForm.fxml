@@ -33,7 +33,7 @@
             <Insets bottom="15.0" left="25.0" right="25.0" top="20.0" />
          </padding>
       </VBox>
-      <Hyperlink styleClass="login-form-guest-link" text="Guest Login">
+      <Hyperlink onAction="#handleGuestLogin" styleClass="login-form-guest-link" text="Guest Login">
          <VBox.margin>
             <Insets bottom="10.0" />
          </VBox.margin>

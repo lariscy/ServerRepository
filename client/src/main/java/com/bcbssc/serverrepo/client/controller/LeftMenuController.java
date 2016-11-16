@@ -38,8 +38,8 @@ public class LeftMenuController extends ChildController implements Initializable
     public void initialize(URL location, ResourceBundle resources) {
         LOG.debug("initializing");
         
-        btnServerList.setText(FontAwesome.SERVER);
-        btnUrlList.setText(FontAwesome.GLOBE);
+        btnServerList.setText(FontAwesome.getText(FontAwesome.Glyph.SERVER));
+        btnUrlList.setText(FontAwesome.getText(FontAwesome.Glyph.GLOBE));
         
         this.setupToolTips();
         
@@ -47,11 +47,11 @@ public class LeftMenuController extends ChildController implements Initializable
     }
     
     private void setupToolTips(){
-        Tooltip serverListButtonTT = new Tooltip("Server List");
+        Tooltip serverListButtonTT = new Tooltip("Servers");
         ToolTipUtil.hackTooltipStartTiming(serverListButtonTT);
         btnServerList.setTooltip(serverListButtonTT);
         
-        Tooltip urlListButtonTT = new Tooltip("URL List");
+        Tooltip urlListButtonTT = new Tooltip("URLs");
         ToolTipUtil.hackTooltipStartTiming(urlListButtonTT);
         btnUrlList.setTooltip(urlListButtonTT);
     }
@@ -88,10 +88,12 @@ public class LeftMenuController extends ChildController implements Initializable
     
     @Handler
     private void ebLogoutEvent(LogoutEvent logoutEvent){
-        Platform.runLater(() -> {
-            btnUrlList.setSelected(false);
-            btnServerList.setSelected(false);
-        });
+        if (logoutEvent.isSuccess()){
+            Platform.runLater(() -> {
+                btnUrlList.setSelected(false);
+                btnServerList.setSelected(false);
+            });
+        }
     }
     
 }
