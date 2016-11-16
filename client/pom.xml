@@ -6,7 +6,7 @@
     <name>ServerRepoClient</name>
     
     <parent>
-        <groupId>com.bcbssc</groupId>
+        <groupId>com.github.lariscy.serverrepo</groupId>
         <artifactId>ServerRepository</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
@@ -93,7 +93,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>com.bcbssc.serverrepo.client.MainApp</mainClass>
+                            <mainClass>com.github.lariscy.serverrepo.client.MainApp</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
