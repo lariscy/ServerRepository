@@ -19,3 +19,7 @@ The client side of ServerRepository. Written as a JavaFX desktop application.
   * Netty IO - http://netty.io/
 * Event Bus
   * MBassador - https://github.com/bennidi/mbassador
+
+## Screenshots
+![login screenshot](/img/login.png)
+![servers view screenshot](/img/servers-view.png)
