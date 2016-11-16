@@ -11,7 +11,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 /**
- * @author jw38
+ * @author Steven Lariscy
  */
 public class ConfirmboxController implements Initializable {
 

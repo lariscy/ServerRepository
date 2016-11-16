@@ -1,7 +1,7 @@
 package com.github.lariscy.serverrepo.client.net;
 
 /**
- * @author jw38
+ * @author Steven Lariscy
  */
 public interface NettyObj {
     

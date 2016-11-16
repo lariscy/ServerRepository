@@ -4,7 +4,7 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 
 /**
- * @author jw38
+ * @author Steven Lariscy
  */
 public class User {
     

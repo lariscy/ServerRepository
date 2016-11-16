@@ -1,7 +1,7 @@
 package com.github.lariscy.serverrepo.client.controller;
 
 /**
- * @author jw38
+ * @author Steven Lariscy
  */
 public class ChildController {
     

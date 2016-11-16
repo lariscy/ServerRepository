@@ -9,7 +9,7 @@ import com.google.inject.AbstractModule;
 import net.engio.mbassy.bus.MBassador;
 
 /**
- * @author jw38
+ * @author Steven Lariscy
  */
 public class ServerRepoGuiceModule extends AbstractModule {
 

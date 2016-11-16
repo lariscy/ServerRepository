@@ -3,7 +3,7 @@ package com.github.lariscy.serverrepo.client.service;
 import com.github.lariscy.serverrepo.client.model.User;
 
 /**
- * @author jw38
+ * @author Steven Lariscy
  */
 public interface UserService {
     

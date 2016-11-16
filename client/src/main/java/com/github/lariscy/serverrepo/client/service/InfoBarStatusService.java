@@ -8,7 +8,7 @@ import javax.inject.Inject;
 import net.engio.mbassy.bus.MBassador;
 
 /**
- * @author jw38
+ * @author Steven Lariscy
  */
 @Singleton
 public class InfoBarStatusService {

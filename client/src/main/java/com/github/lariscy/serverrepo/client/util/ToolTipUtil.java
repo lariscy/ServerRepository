@@ -9,7 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @author jw38
+ * @author Steven Lariscy
  * 
  * Code borrowed from:
  * http://stackoverflow.com/questions/26854301/control-javafx-tooltip-delay

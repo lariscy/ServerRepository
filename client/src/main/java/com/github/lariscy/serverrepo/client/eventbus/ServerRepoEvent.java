@@ -1,7 +1,7 @@
 package com.github.lariscy.serverrepo.client.eventbus;
 
 /**
- * @author jw38
+ * @author Steven Lariscy
  */
 public interface ServerRepoEvent {
     

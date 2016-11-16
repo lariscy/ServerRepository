@@ -1,7 +1,7 @@
 package com.github.lariscy.serverrepo.client.model;
 
 /**
- * @author jw38
+ * @author Steven Lariscy
  */
 public enum InfoBarStatus {
     

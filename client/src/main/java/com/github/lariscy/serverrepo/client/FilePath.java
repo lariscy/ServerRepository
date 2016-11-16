@@ -1,7 +1,7 @@
 package com.github.lariscy.serverrepo.client;
 
 /**
- * @author jw38
+ * @author Steven Lariscy
  */
 public class FilePath {
     

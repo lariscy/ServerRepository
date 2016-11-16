@@ -4,7 +4,7 @@ import com.github.lariscy.serverrepo.client.model.InfoBarStatus;
 import com.github.lariscy.serverrepo.client.model.UserRole;
 
 /**
- * @author jw38
+ * @author Steven Lariscy
  */
 public class InfoBarStatusEvent implements ServerRepoEvent {
     

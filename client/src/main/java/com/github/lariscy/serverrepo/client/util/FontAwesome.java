@@ -4,7 +4,7 @@ import javafx.scene.Node;
 import javafx.scene.text.Text;
 
 /**
- * @author jw38
+ * @author Steven Lariscy
  */
 public class FontAwesome {
 

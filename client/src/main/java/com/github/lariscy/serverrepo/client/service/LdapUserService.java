@@ -11,7 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @author jw38
+ * @author Steven Lariscy
  */
 @Singleton
 public class LdapUserService implements UserService {

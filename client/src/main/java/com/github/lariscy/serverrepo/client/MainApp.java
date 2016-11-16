@@ -22,6 +22,9 @@ import net.engio.mbassy.bus.MBassador;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * @author Steven Lariscy
+ */
 public class MainApp extends Application {
     
     private static final Logger LOG = LoggerFactory.getLogger(MainApp.class);

@@ -3,7 +3,7 @@ package com.github.lariscy.serverrepo.client.eventbus;
 import com.github.lariscy.serverrepo.client.model.User;
 
 /**
- * @author jw38
+ * @author Steven Lariscy
  */
 public class LoginEvent extends SimpleResponseEvent {
 
