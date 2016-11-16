@@ -1,6 +1,7 @@
 package com.bcbssc.serverrepo.client.guice;
 
 import com.bcbssc.serverrepo.client.eventbus.ServerRepoEvent;
+import com.bcbssc.serverrepo.client.service.CenterNodeViewService;
 import com.bcbssc.serverrepo.client.service.InfoBarStatusService;
 import com.bcbssc.serverrepo.client.service.LdapUserService;
 import com.bcbssc.serverrepo.client.service.UserService;
@@ -17,6 +18,7 @@ public class ServerRepoGuiceModule extends AbstractModule {
         bind(MBassador.class).toInstance(this.getEventBusInstance());
         bind(UserService.class).to(LdapUserService.class).asEagerSingleton();
         bind(InfoBarStatusService.class).asEagerSingleton();
+        bind(CenterNodeViewService.class).asEagerSingleton();
     }
     
     private MBassador getEventBusInstance(){

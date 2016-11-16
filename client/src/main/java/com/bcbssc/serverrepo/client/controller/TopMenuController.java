@@ -5,11 +5,13 @@ import com.bcbssc.serverrepo.client.event.AppHideEvent;
 import com.bcbssc.serverrepo.client.eventbus.LogoutEvent;
 import com.bcbssc.serverrepo.client.model.InfoBarStatus;
 import com.bcbssc.serverrepo.client.model.UserRole;
+import com.bcbssc.serverrepo.client.service.CenterNodeViewService;
 import com.bcbssc.serverrepo.client.service.InfoBarStatusService;
 import com.bcbssc.serverrepo.client.service.UserService;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
+import javafx.beans.binding.BooleanBinding;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Menu;
@@ -58,17 +60,53 @@ public class TopMenuController extends ChildController implements Initializable 
     @Inject
     private InfoBarStatusService infoBarStatusService;
     @Inject
+    private CenterNodeViewService centerNodeViewService;
+    @Inject
     private MBassador eventBus;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         LOG.debug("initializing");
         
+        this.setupBindings();
         exitMenuItem.setOnAction(
             (java.awt.SystemTray.isSupported() ? new AppHideEvent() : new AppCloseEvent())
         );
         
         eventBus.subscribe(this);
+    }
+    
+    private void setupBindings(){
+        // only enabled Logout menu item if user is logged in
+        logoutMenuItem.disableProperty().bind(new BooleanBinding(){
+            {
+                super.bind(userService.getUser().getIsLoggedInProperty());
+            }
+            @Override
+            protected boolean computeValue() {
+                return !userService.getUser().isIsLoggedIn();
+            }
+        });
+        
+        BooleanBinding expandShrinkBinding = new BooleanBinding(){
+            {
+                super.bind(
+                    centerNodeViewService.getCenterNodeView().getIsServerTreeViewActiveProperty(),
+                    centerNodeViewService.getCenterNodeView().getIsUrlTreeViewActiveProperty()
+                );
+            }
+            @Override
+            protected boolean computeValue() {
+                return (
+                    !centerNodeViewService.getCenterNodeView().isIsServerTreeViewActive() &&
+                    !centerNodeViewService.getCenterNodeView().isIsUrlTreeViewActive()
+                );
+            }
+        };
+        // only enable Expand All and Shrink All menu items if those views
+        // are active
+        expandAllMenuItem.disableProperty().bind(expandShrinkBinding);
+        shrinkAllMenuItem.disableProperty().bind(expandShrinkBinding);
     }
     
     @FXML

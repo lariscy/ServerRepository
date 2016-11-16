@@ -1,5 +1,8 @@
 package com.bcbssc.serverrepo.client.model;
 
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
+
 /**
  * @author jw38
  */
@@ -7,7 +10,8 @@ public class User {
     
     private String userName;
     private UserRole userRole;
-    private boolean isLoggedIn;
+    //private boolean isLoggedIn;
+    private BooleanProperty isLoggedInProperty = new SimpleBooleanProperty(false);
 
     public String getUserName() {
         return userName;
@@ -26,16 +30,20 @@ public class User {
     }
 
     public boolean isIsLoggedIn() {
-        return isLoggedIn;
+        return isLoggedInProperty.getValue();
     }
 
     public void setIsLoggedIn(boolean isLoggedIn) {
-        this.isLoggedIn = isLoggedIn;
+        this.isLoggedInProperty.setValue(isLoggedIn);
+    }
+    
+    public BooleanProperty getIsLoggedInProperty(){
+        return isLoggedInProperty;
     }
 
     @Override
     public String toString() {
-        return "User{" + "userName=" + userName + ", userRole=" + userRole + ", isLoggedIn=" + isLoggedIn + '}';
+        return "User{" + "userName=" + userName + ", userRole=" + userRole + ", isLoggedIn=" + isLoggedInProperty.getValue() + '}';
     }
     
 }

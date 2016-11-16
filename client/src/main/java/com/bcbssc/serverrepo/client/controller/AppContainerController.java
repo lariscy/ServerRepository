@@ -2,7 +2,9 @@ package com.bcbssc.serverrepo.client.controller;
 
 import com.bcbssc.serverrepo.client.FilePath;
 import com.bcbssc.serverrepo.client.MainApp;
+import com.bcbssc.serverrepo.client.model.CenterNodeView;
 import com.bcbssc.serverrepo.client.model.User;
+import com.bcbssc.serverrepo.client.service.CenterNodeViewService;
 import com.bcbssc.serverrepo.client.service.UserService;
 import java.io.IOException;
 import java.net.URL;
@@ -45,6 +47,8 @@ public class AppContainerController implements Initializable {
     
     @Inject
     private UserService userService;
+    @Inject
+    private CenterNodeViewService centerNodeViewService;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -70,6 +74,7 @@ public class AppContainerController implements Initializable {
     
     public void loadLoginView(){
         this.loadNodeCenter(loginForm);
+        centerNodeViewService.setLoginViewActive();
         loginFormController.setLoginFocus();
     }
     
@@ -77,6 +82,7 @@ public class AppContainerController implements Initializable {
         User user = userService.getUser();
         if (user!=null && user.isIsLoggedIn()){
             this.loadNodeCenter(serverTreeView);
+            centerNodeViewService.setServerTreeViewActive();
             leftMenuController.setServerListToggleActive();
             return true;
         }
@@ -87,6 +93,7 @@ public class AppContainerController implements Initializable {
         User user = userService.getUser();
         if (user!=null && user.isIsLoggedIn()){
             this.loadNodeCenter(urlTreeView);
+            centerNodeViewService.setUrlTreeViewActive();
             leftMenuController.setUrlListToggleActive();
             return true;
         }

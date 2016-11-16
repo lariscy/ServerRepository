@@ -54,6 +54,18 @@ public class LoginFormController extends ChildController implements Initializabl
         LOG.debug("initializing");
         
         lblLoginTitle.setText(MainApp.getAppProps().getProp("application.name", "app.name"));
+        
+        this.setupBindings();
+        this.setLoginFocus();
+        
+        eventBus.subscribe(this);
+    }
+    
+    public void setLoginFocus(){
+        Platform.runLater(txtUsername::requestFocus);
+    }
+    
+    private void setupBindings(){
         btnLogin.disableProperty().bind(new BooleanBinding(){
             {
                 super.bind(txtUsername.textProperty(), txtPassword.textProperty());
@@ -63,14 +75,6 @@ public class LoginFormController extends ChildController implements Initializabl
                 return (txtUsername.getText().isEmpty() || txtPassword.getText().isEmpty());
             }
         });
-        
-        this.setLoginFocus();
-        
-        eventBus.subscribe(this);
-    }
-    
-    public void setLoginFocus(){
-        Platform.runLater(txtUsername::requestFocus);
     }
     
     @FXML

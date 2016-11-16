@@ -20,6 +20,10 @@ public class LdapUserService implements UserService {
 
     private User user;
     
+    public LdapUserService(){
+        user = new User();
+    }
+    
     @Inject
     private MBassador eventBus;
     
@@ -29,21 +33,18 @@ public class LdapUserService implements UserService {
         //@TODO add real login logic
         
         if (userName.equals("admin") && password.equals("admin")){
-            user = new User();
             user.setUserName(userName);
             user.setIsLoggedIn(true);
             user.setUserRole(UserRole.ADMIN);
             eventBus.publishAsync(new LoginEvent(true, user, "login success"));
             return true;
         } else if (userName.equals("user") && password.equals("user")){
-            user = new User();
             user.setUserName(userName);
             user.setIsLoggedIn(true);
             user.setUserRole(UserRole.USER);
             eventBus.publishAsync(new LoginEvent(true, user, "login success"));
             return true;
         } else if (userName.equals("readonly") && password.equals("readonly")){
-            user = new User();
             user.setUserName(userName);
             user.setIsLoggedIn(true);
             user.setUserRole(UserRole.READONLY);
@@ -57,8 +58,9 @@ public class LdapUserService implements UserService {
 
     @Override
     public boolean loginGuest() {
+        //@TODO put some real logic here
+        
         LOG.debug("logging in as guest");
-        user = new User();
         user.setUserName("anonymous");
         user.setIsLoggedIn(true);
         user.setUserRole(UserRole.READONLY);
@@ -68,10 +70,10 @@ public class LdapUserService implements UserService {
 
     @Override
     public boolean logout() {
-        if (user!=null){
-            user = null;
-            eventBus.publishAsync(new LogoutEvent(true, "logout success"));
-        }
+        //@TODO put some real logic here
+        
+        user.setIsLoggedIn(false);
+        eventBus.publishAsync(new LogoutEvent(true, "logout success"));
         return true;
     }
 
