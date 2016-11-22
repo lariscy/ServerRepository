@@ -1,4 +1,4 @@
-package com.github.lariscy.serverrepo.client.net;
+package com.github.lariscy.serverrepo.shared;
 
 /**
  * @author Steven Lariscy

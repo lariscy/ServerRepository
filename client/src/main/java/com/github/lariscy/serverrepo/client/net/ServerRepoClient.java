@@ -1,8 +1,8 @@
 package com.github.lariscy.serverrepo.client.net;
 
 import io.netty.bootstrap.Bootstrap;
-import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.EventLoopGroup;
@@ -12,8 +12,6 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.serialization.ClassResolvers;
 import io.netty.handler.codec.serialization.ObjectDecoder;
 import io.netty.handler.codec.serialization.ObjectEncoder;
-import io.netty.util.concurrent.Future;
-import io.netty.util.concurrent.FutureListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,12 +22,15 @@ public class ServerRepoClient {
     
     private static final Logger LOG = LoggerFactory.getLogger(ServerRepoClient.class);
     
-    private String serverHost = "127.0.0.1";
+    private String serverHost = "localhost";
     private int serverPort = 3026;
     private EventLoopGroup group;
-    private Channel channel;
+    private Bootstrap bootstrap;
+    private ChannelHandlerContext ctx;
+    private ServerRepoClient instance;
     
     public ServerRepoClient(){
+        instance = this;
         this.setupClient();
     }
     
@@ -45,31 +46,44 @@ public class ServerRepoClient {
 
         LOG.debug("initializing network client");
 
-        Bootstrap b = new Bootstrap();
-        b.group(group)
-                .channel(NioSocketChannel.class)
-                .handler(new ChannelInitializer<SocketChannel>(){
-                    @Override
-                    protected void initChannel(SocketChannel ch) throws Exception {
-                        ChannelPipeline p = ch.pipeline();
-                        p.addLast(
-                            new ObjectEncoder(),
-                            new ObjectDecoder(ClassResolvers.cacheDisabled(null)),
-                            new ServerRepoClientHandler()
-                        );
-                    }
-                });
-
+        bootstrap = new Bootstrap();
+        bootstrap.group(group)
+            .channel(NioSocketChannel.class)
+            .handler(new ChannelInitializer<SocketChannel>(){
+                @Override
+                protected void initChannel(SocketChannel ch) throws Exception {
+                    ChannelPipeline p = ch.pipeline();
+                    p.addLast(
+                        new ObjectEncoder(),
+                        new ObjectDecoder(ClassResolvers.cacheDisabled(null)),
+                        new LoginHandler(instance)
+                    );
+                }
+            });
+    }
+    
+    public boolean connect(){
         LOG.debug("connecting to {}:{}", serverHost, serverPort);
-        ChannelFuture channelFuture = b.connect(serverHost, serverPort);
-        channelFuture.addListener((FutureListener<Void>) (Future<Void> f) -> {
-            if (!f.isSuccess()) {
-                channel = channelFuture.channel();
-                LOG.error("exception during client connection", f.cause());
-            } else if (f.isSuccess()){
-                LOG.debug("client connected successfully");
-            }
-        });
+        ChannelFuture connectFuture = bootstrap.connect(serverHost, serverPort);
+        connectFuture.awaitUninterruptibly();
+        if (connectFuture.isSuccess()){
+            return true;
+        } else {
+            LOG.error("exception during client connect", connectFuture.cause());
+            return false;
+        }
+    }
+    
+    public boolean disconnect(){
+        LOG.debug("disconnecting");
+        ChannelFuture disconnectFuture = ctx.disconnect();
+        disconnectFuture.awaitUninterruptibly();
+        if (disconnectFuture.isSuccess()){
+            return true;
+        } else {
+            LOG.error("exception during client disconnect", disconnectFuture.cause());
+            return false;
+        }
     }
     
     public void shutdownClient(){
@@ -77,8 +91,12 @@ public class ServerRepoClient {
         group.shutdownGracefully();
     }
     
-    public Channel getChannel(){
-        return channel;
+    public ChannelHandlerContext getChannelHandlerContext() {
+        return ctx;
+    }
+    
+    public void setChannelHandlerContext(ChannelHandlerContext ctx){
+        this.ctx = ctx;
     }
     
 }
