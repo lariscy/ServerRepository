@@ -1,10 +1,12 @@
 package com.github.lariscy.serverrepo.client.service;
 
 import com.github.lariscy.serverrepo.client.model.CenterNodeView;
+import com.google.inject.Singleton;
 
 /**
  * @author Steven Lariscy
  */
+@Singleton
 public class CenterNodeViewService {
     
     private CenterNodeView centerNodeView = new CenterNodeView();
