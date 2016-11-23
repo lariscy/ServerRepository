@@ -3,9 +3,8 @@ package com.github.lariscy.serverrepo.client.controller;
 import com.github.lariscy.serverrepo.client.MainApp;
 import com.github.lariscy.serverrepo.client.eventbus.LoginEvent;
 import com.github.lariscy.serverrepo.client.model.InfoBarStatus;
-import com.github.lariscy.serverrepo.client.model.UserRole;
+import com.github.lariscy.serverrepo.shared.net.model.UserRole;
 import com.github.lariscy.serverrepo.client.service.InfoBarStatusService;
-import com.github.lariscy.serverrepo.client.service.UserService;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
@@ -43,8 +42,6 @@ public class LoginFormController extends ChildController implements Initializabl
     private Button btnLogin;
     
     @Inject
-    private UserService userService;
-    @Inject
     private InfoBarStatusService infoBarStatusService;
     @Inject
     private MBassador eventBus;
@@ -81,13 +78,13 @@ public class LoginFormController extends ChildController implements Initializabl
     private void handleLogin(){
         infoBarStatusService.updateStatus(InfoBarStatus.CONNECTING);
         //LOG.debug("handleLogin() clicked with user [{}] and pass [{}]", txtUsername.getText(), txtPassword.getText());
-        userService.login(txtUsername.getText(), txtPassword.getText());
+        //userService.login(txtUsername.getText(), txtPassword.getText());
     }
     
     @FXML
     private void handleGuestLogin(){
         infoBarStatusService.updateStatus(InfoBarStatus.CONNECTING);
-        userService.loginGuest();
+        //userService.loginGuest();
     }
     
     @Handler

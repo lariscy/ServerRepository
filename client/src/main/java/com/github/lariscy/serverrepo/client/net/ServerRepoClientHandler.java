@@ -1,6 +1,6 @@
 package com.github.lariscy.serverrepo.client.net;
 
-import com.github.lariscy.serverrepo.shared.NettyObj;
+import com.github.lariscy.serverrepo.shared.net.NettyObj;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import javax.inject.Inject;

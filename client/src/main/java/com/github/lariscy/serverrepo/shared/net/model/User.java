@@ -1,4 +1,4 @@
-package com.github.lariscy.serverrepo.client.model;
+package com.github.lariscy.serverrepo.shared.net.model;
 
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -9,6 +9,7 @@ import javafx.beans.property.SimpleBooleanProperty;
 public class User {
     
     private String userName;
+    private String userPassword;
     private UserRole userRole;
     //private boolean isLoggedIn;
     private BooleanProperty isLoggedInProperty = new SimpleBooleanProperty(false);
@@ -19,6 +20,14 @@ public class User {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+    
+    public String getUserPassword() {
+        return userPassword;
+    }
+
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
     }
 
     public UserRole getUserRole() {
@@ -43,7 +52,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" + "userName=" + userName + ", userRole=" + userRole + ", isLoggedIn=" + isLoggedInProperty.getValue() + '}';
+        return "User{" + "userName=" + userName + ", userPassword=*****, userRole=" + userRole + ", isLoggedIn=" + isLoggedInProperty.getValue() + '}';
     }
     
 }

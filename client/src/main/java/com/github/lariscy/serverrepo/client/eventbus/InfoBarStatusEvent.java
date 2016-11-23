@@ -1,7 +1,7 @@
 package com.github.lariscy.serverrepo.client.eventbus;
 
 import com.github.lariscy.serverrepo.client.model.InfoBarStatus;
-import com.github.lariscy.serverrepo.client.model.UserRole;
+import com.github.lariscy.serverrepo.shared.net.model.UserRole;
 
 /**
  * @author Steven Lariscy

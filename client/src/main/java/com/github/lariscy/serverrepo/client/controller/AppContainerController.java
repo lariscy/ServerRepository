@@ -2,9 +2,8 @@ package com.github.lariscy.serverrepo.client.controller;
 
 import com.github.lariscy.serverrepo.client.FilePath;
 import com.github.lariscy.serverrepo.client.MainApp;
-import com.github.lariscy.serverrepo.client.model.User;
+import com.github.lariscy.serverrepo.shared.net.model.User;
 import com.github.lariscy.serverrepo.client.service.CenterNodeViewService;
-import com.github.lariscy.serverrepo.client.service.UserService;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -45,8 +44,6 @@ public class AppContainerController implements Initializable {
     private UrlTreeController urlTreeController;
     
     @Inject
-    private UserService userService;
-    @Inject
     private CenterNodeViewService centerNodeViewService;
     
     @Override
@@ -78,24 +75,24 @@ public class AppContainerController implements Initializable {
     }
     
     public boolean loadServerTreeView(){
-        User user = userService.getUser();
-        if (user!=null && user.isIsLoggedIn()){
-            this.loadNodeCenter(serverTreeView);
-            centerNodeViewService.setServerTreeViewActive();
-            leftMenuController.setServerListToggleActive();
-            return true;
-        }
+//        User user = userService.getUser();
+//        if (user!=null && user.isIsLoggedIn()){
+//            this.loadNodeCenter(serverTreeView);
+//            centerNodeViewService.setServerTreeViewActive();
+//            leftMenuController.setServerListToggleActive();
+//            return true;
+//        }
         return false;
     }
     
     public boolean loadURLTreeView(){
-        User user = userService.getUser();
-        if (user!=null && user.isIsLoggedIn()){
-            this.loadNodeCenter(urlTreeView);
-            centerNodeViewService.setUrlTreeViewActive();
-            leftMenuController.setUrlListToggleActive();
-            return true;
-        }
+//        User user = userService.getUser();
+//        if (user!=null && user.isIsLoggedIn()){
+//            this.loadNodeCenter(urlTreeView);
+//            centerNodeViewService.setUrlTreeViewActive();
+//            leftMenuController.setUrlListToggleActive();
+//            return true;
+//        }
         return false;
     }
     

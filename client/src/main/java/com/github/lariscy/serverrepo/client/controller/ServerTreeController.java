@@ -1,7 +1,5 @@
 package com.github.lariscy.serverrepo.client.controller;
 
-import com.github.lariscy.serverrepo.client.concurrent.ServerTreeManager;
-import com.github.lariscy.serverrepo.client.concurrent.ServerTreeRunnable;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -24,10 +22,10 @@ public class ServerTreeController extends ChildController implements Initializab
     public void initialize(URL location, ResourceBundle resources) {
         LOG.debug("initializing");
         
-        ServerTreeRunnable serverTreeRunnable = new ServerTreeRunnable();
-        Thread serverTreeThread = new Thread(serverTreeRunnable, "ServerTree Thread");
-        serverTreeThread.setDaemon(true);
-        serverTreeThread.start();
+//        ServerTreeRunnable serverTreeRunnable = new ServerTreeRunnable();
+//        Thread serverTreeThread = new Thread(serverTreeRunnable, "ServerTree Thread");
+//        serverTreeThread.setDaemon(true);
+//        serverTreeThread.start();
     }
     
 }

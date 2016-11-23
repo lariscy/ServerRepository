@@ -4,10 +4,9 @@ import com.github.lariscy.serverrepo.client.event.AppCloseEvent;
 import com.github.lariscy.serverrepo.client.event.AppHideEvent;
 import com.github.lariscy.serverrepo.client.eventbus.LogoutEvent;
 import com.github.lariscy.serverrepo.client.model.InfoBarStatus;
-import com.github.lariscy.serverrepo.client.model.UserRole;
+import com.github.lariscy.serverrepo.shared.net.model.UserRole;
 import com.github.lariscy.serverrepo.client.service.CenterNodeViewService;
 import com.github.lariscy.serverrepo.client.service.InfoBarStatusService;
-import com.github.lariscy.serverrepo.client.service.UserService;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
@@ -56,8 +55,6 @@ public class TopMenuController extends ChildController implements Initializable 
     private MenuItem aboutMenuItem;
     
     @Inject
-    private UserService userService;
-    @Inject
     private InfoBarStatusService infoBarStatusService;
     @Inject
     private CenterNodeViewService centerNodeViewService;
@@ -78,15 +75,15 @@ public class TopMenuController extends ChildController implements Initializable 
     
     private void setupBindings(){
         // only enabled Logout menu item if user is logged in
-        logoutMenuItem.disableProperty().bind(new BooleanBinding(){
-            {
-                super.bind(userService.getUser().getIsLoggedInProperty());
-            }
-            @Override
-            protected boolean computeValue() {
-                return !userService.getUser().isIsLoggedIn();
-            }
-        });
+//        logoutMenuItem.disableProperty().bind(new BooleanBinding(){
+//            {
+//                super.bind(userService.getUser().getIsLoggedInProperty());
+//            }
+//            @Override
+//            protected boolean computeValue() {
+//                return !userService.getUser().isIsLoggedIn();
+//            }
+//        });
         
         BooleanBinding expandShrinkBinding = new BooleanBinding(){
             {
@@ -111,7 +108,7 @@ public class TopMenuController extends ChildController implements Initializable 
     
     @FXML
     private void handleLogout(){
-        userService.logout();
+        //userService.logout();
     }
     
     @Handler

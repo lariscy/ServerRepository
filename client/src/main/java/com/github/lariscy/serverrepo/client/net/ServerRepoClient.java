@@ -66,24 +66,20 @@ public class ServerRepoClient {
         LOG.debug("connecting to {}:{}", serverHost, serverPort);
         ChannelFuture connectFuture = bootstrap.connect(serverHost, serverPort);
         connectFuture.awaitUninterruptibly();
-        if (connectFuture.isSuccess()){
-            return true;
-        } else {
-            LOG.error("exception during client connect", connectFuture.cause());
-            return false;
+        if (!connectFuture.isSuccess()){
+            LOG.error("exception during client disconnect", connectFuture.cause());
         }
+        return connectFuture.isSuccess();
     }
     
     public boolean disconnect(){
         LOG.debug("disconnecting");
         ChannelFuture disconnectFuture = ctx.disconnect();
         disconnectFuture.awaitUninterruptibly();
-        if (disconnectFuture.isSuccess()){
-            return true;
-        } else {
+        if (!disconnectFuture.isSuccess()){
             LOG.error("exception during client disconnect", disconnectFuture.cause());
-            return false;
         }
+        return disconnectFuture.isSuccess();
     }
     
     public void shutdownClient(){
